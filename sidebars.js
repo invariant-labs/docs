@@ -59,7 +59,7 @@ module.exports = {
 
     {
       type: "category",
-      label: "Tutorial",
+      label: "User Guide",
       // collapsed: true,
       items: [
         "tutorial/get_started",
