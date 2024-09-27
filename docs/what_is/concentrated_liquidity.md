@@ -4,12 +4,15 @@ title: Concentrated Liquidity
 slug: /what_is/concentrated_liquidity
 ---
 
-It’s our main feature and enables maximum capital efficiency. In common liquidity pools, liquidity is distributed along the whole price curve.
+### Overview
 
-Here, in Invariant, you can choose an exact price range. As a result, the whole amount invested will earn for you.  
-As a result, your capital can be even 40000x more efficient. Sounds great, right?
+Concentrated Liquidity is a flagship feature of Invariant. Designed to maximize capital efficiency in a way that traditional liquidity pools cannot. In most common liquidity pools, liquidity is distributed evenly across the entire price curve, which often results in much of the capital remaining unused or underutilized.
 
-### Introduction
+With this approach, you have the ability to concentrate your liquidity within a specific, targeted price range of your choice. This means that the entire amount of your capital is actively working for you within this selected range, as opposed to being spread thin across price points that may not be relevant to the market at that moment.
+
+This targeted strategy can lead to a remarkable increase in capital efficiency, potentially up to 40,000 times more effective than conventional methods. By allowing you to focus your resources where they are needed most, Invariant ensures that your investments are working smarter and generating optimal returns.
+
+### Technical sight
 
 In Invariant we can allocate liquidity within a custom price range. It means that user sets a price range $[p_l, p_u]$, where $p_l, p_u$ means lower and the upper price of a specific range.
 
@@ -24,21 +27,3 @@ As the price of an asset rises or falls, it may exit the price bounds that LPs h
 As price moves in one direction, LPs gain more of the one asset as swappers demand the other, until their entire liquidity consists of only one asset. If the price ever reenters the interval, the liquidity becomes active again, and in-range LPs begin earning fees once more.
 
 Importantly, LPs are free to create as many positions as they see fit, each with its own price interval. Concentrated liquidity serves as a mechanism to let the market decide what a sensible distribution of liquidity is, as rational LPs are incentivized to concentrate their liquidity while ensuring that their liquidity remains active.
-
-### Ticks
-
-To achieve concentrated liquidity, the once continuous spectrum of price space has been partitioned with ticks.
-
-Ticks are the boundaries between discrete areas in price space. Ticks are spaced such that an increase or decrease of 1 tick represents a $0.01\%$ increase or decrease in price at any point in price space.
-
-Ticks function as boundaries for liquidity positions. When a position is created, the provider must choose the lower and upper tick that will represent their position's borders.
-
-As the spot price changes during swapping, the pool contract will continuously exchange the outbound asset for the inbound, progressively using all the liquidity available within the current tick interval until the next tick is reached. At this point, the contract switches to a new tick and activates any dormant liquidity within a position that has a boundary at the newly active tick.
-
-While each pool has the same number of underlying ticks, in practice only a portion of them are able to serve as active ticks. Due to the nature of the v3 smart contracts, tick spacing is directly correlated to the swap fee. Lower fee tiers allow closer potentially active ticks, and higher fees allow a relatively wider spacing of potential active ticks.
-
-While inactive ticks have no impact on transaction cost during swaps, crossing an active tick does increase the cost of the transaction in which it is crossed, as the tick crossing will activate the liquidity within any new positions using the given tick as a border.
-
-In areas where capital efficiency is paramount, such as stable coin pairs, narrower tick spacing increases the granularity of liquidity provisioning and will likely lower price impact when swapping - the result being significantly improved prices for stable coin swaps.
-
-For more information on fee levels and their correlation to tick spacing, see the [whitepaper](https://t.co/Ms1dYZPrZx).

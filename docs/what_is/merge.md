@@ -1,5 +1,5 @@
 ---
-title: Merge
+title: Functional overview
 
 slug: /what_is/merge
 ---
