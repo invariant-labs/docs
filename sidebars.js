@@ -3,24 +3,18 @@ module.exports = {
     "home",
     {
       type: "category",
-      label: "What is Invariant",
+      label: "Core concepts",
       // collapsed: true,
       items: [
         "what_is/the_birth_of_the_idea",
-        {
-          type: "category",
-          label: "Concentrated Liquidity",
-          // collapsed: true,
-          items: [
-            "what_is/concentrated_liquidity",
-            "what_is/price_of_the_token",
-            "what_is/single_token_lp",
-            "what_is/ticks",
-            "what_is/fees",
-            "what_is/merge",
-            "what_is/glossary",
-          ],
-        },
+        "what_is/concentrated_liquidity",
+        "what_is/active_liquidity",
+        "what_is/price_of_the_token",
+        "what_is/single_token_lp",
+        "what_is/ticks",
+        "what_is/fees",
+        "what_is/merge",
+        "what_is/glossary",
       ],
     },
 
