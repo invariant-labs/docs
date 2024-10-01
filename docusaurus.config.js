@@ -2,6 +2,7 @@
 
 const math = require("remark-math");
 const katex = require("rehype-katex");
+
 module.exports = {
   title: "Invariant docs",
   tagline:
@@ -38,6 +39,26 @@ module.exports = {
           to: "/docs/alephium/installation",
           label: "Alephium",
           position: "left",
+        },
+        {
+          html: '<i class="fa-solid fa-x icon-x"></i>',
+          href: "https://x.com/invariant_labs",
+          position: "right",
+        },
+        {
+          html: '<i class="fab fa-github fa-lg icon-github"></i>',
+          href: "https://github.com/invariant-labs",
+          position: "right",
+        },
+        {
+          html: '<i class="fab fa-discord icon-discord"></i>',
+          href: "https://discord.com/invite/w6hTeWTJvG",
+          position: "right",
+        },
+        {
+          html: '<i class="fab fa-youtube icon-youtube"></i>',
+          href: "https://www.youtube.com/@invariant_labs",
+          position: "right",
         },
       ],
     },

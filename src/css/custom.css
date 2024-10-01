@@ -6,6 +6,8 @@
  */
 
 /* You can override the default Infima variables here. */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
 :root {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: rgb(33, 175, 144);
@@ -17,8 +19,59 @@
   --ifm-code-font-size: 95%;
 }
 
+.navbar__link i {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+
+.icon-discord {
+  color: #7289da;
+  position: relative;
+  top: 2px;
+  left: -8px;
+}
+
+.icon-discord:hover {
+  color: #5865f2;
+}
+
+.icon-youtube {
+  color: #ff0000;
+  position: relative;
+  top: 2px;
+  left: -8px;
+}
+.icon-youtube:hover {
+  color: #ff6347;
+}
+
+.icon-x {
+  font-size: 40px;
+  color: #000000;
+  position: relative;
+  top: 2px;
+  left: 8px;
+}
+
+.icon-x:hover {
+  color: #5b5b5b;
+}
+
+.icon-github {
+  color: #333333;
+  position: relative;
+  top: 7px;
+  left: -3px;
+}
+
+.icon-github:hover {
+  color: #6e5494;
+}
+
 .docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
+  background-color: rgb(232, 233, 236);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
