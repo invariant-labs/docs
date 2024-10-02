@@ -30,7 +30,7 @@ No, Invariant promotes full decentralization and permissionless access. The only
 
 **7. What wallets can I use?**
 
-You can use any wallet that is compatible with the blockchain on which you're transacting. We recommend [Nightly Wallet](https://nightly.app/), which supports Solana, Aleph Zero, and Vara Network, among others.
+You can use any wallet that is compatible with the blockchain on which you're transacting. We recommend [Nightly Wallet](https://nightly.app/), which supports Solana, Aleph Zero, Vara Network and Eclipse, among others.
 
 **8. How can I verify that the transaction was completed?**
 

@@ -14,9 +14,9 @@ To begin using Invariant, you'll need to [connect your wallet](/docs/eclipse/use
 
 ![wallet connection](/img/docs/app/eclipse_connect_wallet.png)
 
-- Select your wallet provider (e.g., Salmon).
+- Select your wallet provider. We highly recommend using [Nightly](https://nightly.app).
 
-![wallet list](/img/docs/app/eclipse_wallets.png)
+![wallet list](/img/docs/app/eclipsenightly.jpg)
 
 - Follow the prompts to authorize the connection, and you are ready to go with your wallet connected.
 
