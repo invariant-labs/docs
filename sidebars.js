@@ -23,6 +23,11 @@ module.exports = {
       label: "Invariant Features",
       // collapsed: true,
       items: [
+        "invariant_features/position_full_customization",
+        "invariant_features/nft_less_positions",
+        "invariant_features/full_range_tokenizer",
+        "invariant_features/dynamic_fees",
+        "invariant_features/auto_rebalancing",
         {
           type: "category",
           label: "Invariant Bonds",
@@ -45,9 +50,6 @@ module.exports = {
             "invariant_staker/calculation",
           ],
         },
-        "invariant_features/full_range_tokenizer",
-        "invariant_features/nft_less_positions",
-        "invariant_features/position_full_customization",
       ],
     },
 
@@ -337,25 +339,5 @@ module.exports = {
 
     "faq",
     "resources",
-    {
-      href: "https://twitter.com/invariant_labs",
-      label: "Twitter",
-      type: "link",
-    },
-    {
-      href: "https://www.youtube.com/@invariant_labs",
-      label: "Youtube",
-      type: "link",
-    },
-    {
-      href: "https://discord.gg/w6hTeWTJvG",
-      label: "Discord",
-      type: "link",
-    },
-    {
-      href: "https://github.com/invariant-labs",
-      label: "GitHub",
-      type: "link",
-    },
   ],
 };
