@@ -1,5 +1,7 @@
-# Docs
+# Documentation
 This repository contains documentation for various invariant DEX related projects.
+
+[Docs available here](https://docs.invariant.app/)
 
 ## Running the project locally
 Install packages
