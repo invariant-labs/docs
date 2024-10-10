@@ -1,7 +1,7 @@
 ---
 title: FAQ
 
-slug: /aleph_zero/user_guide/faq_tutorial
+slug: /tutorial/tutorial_user_guide/faq_tutorial
 ---
 
 <!-- <details id='1' class='question'>

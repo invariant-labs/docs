@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 
-slug: /aleph_zero/user_guide/troubleshooting
+slug: /tutorial/tutorial_user_guide/troubleshooting
 ---
 
 ## Can't connect wallet - Chrome browser
