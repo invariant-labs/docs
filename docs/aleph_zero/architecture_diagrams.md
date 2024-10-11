@@ -6,6 +6,16 @@ slug: /aleph_zero/architecture_diagrams
 
 This document contains architecture diagrams that provide detailed representations of the system's individual functions. Each diagram describes key components and their interactions, making it easier to understand the structure and operation of the application.
 
+## Init DEX
+
+The init_dex entrypoint initializes the decentralized exchange (DEX) by setting up the initial state of the contract. It performs the following steps:
+
+- Sets the caller as the administrator of the contract.
+- Configures default values such as protocol fees and data structures related to user positions and liquidity pools.
+- Initializes essential mappings and structures to prepare the DEX for further operations, such as adding liquidity and executing trades.
+
+![init_dex](/img/docs/app/architecture_diagrams/init_dex.png)
+
 ## Add fee tier
 
 ```rust
@@ -140,16 +150,6 @@ pub fn create_position(
 This function creates a position based on the provided parameters. The amount of tokens specified in liquidity delta will be deducted from the user's token balances. Position creation will fail if the user does not have enough tokens or has not approved enough tokens.
 
 ![create_position](/img/docs/app/architecture_diagrams/create_position.png)
-
-## Init DEX
-
-The init_dex entrypoint initializes the decentralized exchange (DEX) by setting up the initial state of the contract. It performs the following steps:
-
-- Sets the caller as the administrator of the contract.
-- Configures default values such as protocol fees and data structures related to user positions and liquidity pools.
-- Initializes essential mappings and structures to prepare the DEX for further operations, such as adding liquidity and executing trades.
-
-![init_dex](/img/docs/app/architecture_diagrams/init_dex.png)
 
 ## Update position seconds per liquidity
 
