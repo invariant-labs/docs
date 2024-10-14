@@ -85,7 +85,7 @@ Now you can use testnet tokens, that you received form Airdrop. This point will 
 
 1. Navigate to **"Exchange tab"**.
 
-2. Select the tokens you wish to swap. A modal will appear where you can choose a specific token by either entering its name or selecting one from the list. Additionally, you can add a token by clicking the plus button and providing its token address. In this example, we're swapping from AZERO to USDC.
+2. Select the tokens you wish to swap. A modal will appear where you can choose a specific token by either entering its name or selecting one from the list. Additionally, you can add a token by clicking the plus button and providing its token address. In this example, we're swapping from ALPH to USDC.
 
 ![chose token](/img/docs/app/alph/alph_select_token_list.png)
 
