@@ -6,7 +6,7 @@ slug: /alephium/get_started
 
 This guide will walk you through the essential steps to get started on our [platform](https://alph.invariant.app/), from connecting your wallet and requesting an airdrop to adding a liquidity position, swapping tokens, claiming fees, and closing your position. If you encounter any issues, check out the more detailed User Guide. If you have any questions, feel free to join our community on [Invariant's Discord](https://discord.gg/w6hTeWTJvG) for support. Please note that this walkthrough is on the testnet.
 
-### Connect your wallet
+# Connect your wallet
 
 To begin using Invariant, you'll need to [connect your wallet](/docs/alephium/user_guide/how_to_connect_your_wallet). Follow these steps:
 
@@ -25,7 +25,7 @@ To begin using Invariant, you'll need to [connect your wallet](/docs/alephium/us
 
 ![wallet list](/img/docs/app/alph/alph_sign_connect.jpg)
 
-### Request airdrop from Alephium Faucet
+# Request airdrop from Alephium Faucet
 
 To start interacting with the Invariant platform on the Alephium testnet, you will need some [testnet tokens](/docs/alephium/user_guide/faucet). You can request these tokens from the Alephium Faucet.
 
@@ -39,7 +39,31 @@ To start interacting with the Invariant platform on the Alephium testnet, you wi
 
 3. Your testnet **ALPH** tokens should appear in your wallet after couple seconds.
 
-### Request airdrop from Invaraint Faucet
+### Alephium Desktop Wallet
+
+The process for obtaining testnet **ALPH** tokens looks a bit different when using the Alephium Desktop Wallet. If you are using the desktop version, follow this guide.
+
+1. Switch the network to the testnet.
+
+It's important to switch the network to the testnet if you have the mainnet set as the default.
+
+![Switch to testnet](/img/docs/app/alph/alph_testnetswitch.jpg)
+
+2. Open user setting and go to the **"Developer tools"** tab.
+
+![Switch to testnet](/img/docs/app/alph/alph_developertools.jpg)
+
+3. Switch **"Enable developer tools"** from **off** to **on**.
+
+![Switch to testnet](/img/docs/app/alph/alph_switch.jpg)
+
+4. Click the **"Receive testnet tokens"** button.
+
+After enabling the developer tools, you should see several options on the screen, including "Receive testnet tokens." Click on this, and after a few seconds, your testnet **ALPH** will appear in your wallet.
+
+![Switch to testnet](/img/docs/app/alph/alph_receivetokens.jpg)
+
+# Request airdrop from Invaraint Faucet
 
 Now that you have testnet tokens to approve transactions on the Alephium Testnet, you can request an airdrop from Invariant. You will receive testnet BTC, ETH, and USDC.
 
@@ -53,7 +77,7 @@ Now that you have testnet tokens to approve transactions on the Alephium Testnet
 
 3. After a while, you should have airdropped tokens in your wallet.
 
-### Add liquidity
+# Add liquidity
 
 Adding a liquidity position allows you to earn fees from trades on the Invariant DEX. To [add a position](/docs/alephium/user_guide/how_to_add_liquidity) follow these steps:
 
@@ -79,7 +103,7 @@ Adding a liquidity position allows you to earn fees from trades on the Invariant
 
 6. Click **"Add Position"** button
 
-### Exchange tokens
+# Exchange tokens
 
 Now you can use testnet tokens, that you received form Airdrop. This point will show you [how to perform swap](/docs/alephium/user_guide/how_to_swap) with this tokens.
 
@@ -109,7 +133,7 @@ Now you can use testnet tokens, that you received form Airdrop. This point will 
 
 ![Swap](/img/docs/app/alph/alph_insufficient_volume.jpg)
 
-### Claim fees
+# Claim fees
 
 As a liquidity provider, you can [claim your earned fees](/docs/alephium/user_guide/how_to_claim_fee). To claim fees:
 
@@ -122,7 +146,7 @@ As a liquidity provider, you can [claim your earned fees](/docs/alephium/user_gu
 - Confirm the transaction in your wallet.
 - Your claimed fees will be added to your wallet balance.
 
-### Close position
+# Close position
 
 If you want to [close your position](/docs/alephium/user_guide/how_to_remove_liquidity) and remove liquidity, you can do this even if your fees are unclaimed. The fees after closing the position will be sent to your wallet along with the liquidity.
 
