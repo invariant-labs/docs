@@ -26,8 +26,9 @@ import { Market, Pair } from '@invariant-labs/sdk-eclipse'
 
 | Endpoint |                  Program ID                  |
 | -------- | :------------------------------------------: |
-| Devnet   | CsT21LCRqBfh4SCcNZXtWjRZ6xvYKvdpEBaytCVmWnVJ |
-| Testnet  | CsT21LCRqBfh4SCcNZXtWjRZ6xvYKvdpEBaytCVmWnVJ |
+| Devnet   | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
+| Testnet  | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
+| Mainnet  | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
 
 Data structures are an exact mapping, with the only changes being type and case. Methods called by a user have a corresponding method, that creates instructions, adds them to transaction, signs, and sends it. All methods (including ones used only by admin) have corresponding methods that return just the instruction.
 
