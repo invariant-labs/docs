@@ -65,7 +65,7 @@ export interface SwapSync extends Swap {
 swapInstructionSync(swap: SwapSync)
 ```
 #### ETH swap
-If your transaction includes ETH you must first wrap the tokens and manually create an account. It's possible to do it within one transaction but you must create a token account and transfer funds using additional instructions. This must be accounted for when considering the max amount of ticks used and that's why `TICK_CROSSES_PER_IX_NATIVE_TOKEN` is used as the limit for the simulation.
+If your transaction includes ETH you must first wrap the tokens and manually create an account. It's possible to do it within one transaction but you must create a token account and transfer funds using additional instructions. This must be accounted for, when considering the amount of tick addresses passed and that's why `TICK_CROSSES_PER_IX_NATIVE_TOKEN` is used as the limit for the simulation.
 
 ```ts
 const xToY = false
