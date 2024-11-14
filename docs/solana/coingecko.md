@@ -4,10 +4,23 @@ title: Coingecko API
 slug: /solana/coingecko
 ---
 ## URL
-https://stats.invariant.app
+https://stats.invariant.app/solana/
 
 ## Endpoints
 ### GET /tickers
+Returns current price information, current TVL for a pool, and 24h volume information. 
+Pools are returned in a json array of objects containing the following keys:
+
+| Name             | Data Type |
+|------------------|-----------|
+| base_volume      | Decimal   |
+| target_volume    | String    |
+| liquidity_in_usd | Decimal   |
+| ticker_id        | string    |
+| last_price       | Decimal   |
+| pool_id          | string    |
+| base_currency    | string    |
+| target_currency  | string    |
 
 #### Example Response
 ```json
