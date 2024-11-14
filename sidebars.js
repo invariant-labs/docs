@@ -109,6 +109,7 @@ module.exports = {
                 "solana/swap",
                 "solana/withdraw",
                 "solana/invariant_errors",
+                "solana/coingecko",
               ],
             },
           ],
