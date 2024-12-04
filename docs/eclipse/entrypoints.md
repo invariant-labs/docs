@@ -1,3 +1,9 @@
+---
+title: Entrypoints
+
+slug: /eclipse/entrypoints
+---
+
 # Entrypoints
 
 ## CreateState

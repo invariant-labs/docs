@@ -164,7 +164,10 @@ module.exports = {
               items: [
                 "eclipse/introduction",
                 "eclipse/quick_start",
+                "eclipse/types",
+                "eclipse/entrypoints",
                 "eclipse/sdk",
+                "eclipse/structs",
                 "eclipse/minting_position",
                 "eclipse/swap",
                 "eclipse/invariant_errors",

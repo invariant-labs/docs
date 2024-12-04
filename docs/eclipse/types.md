@@ -1,7 +1,7 @@
 ---
 title: Types
 
-slug: /aleph_zero/types
+slug: /eclipse/types
 ---
 
 This segment introduces key data types essential for understanding and working with the Invariant Protocol. Additionally, it's important to note that these types are defined based on decimals, holding numerical values, and serving as fundamental types in the storage layer.
