@@ -1,5 +1,5 @@
 ---
-title: Sdk Overview
+title: Typescript SDK
 
 slug: /eclipse/sdk
 ---
