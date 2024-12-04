@@ -164,11 +164,9 @@ module.exports = {
               items: [
                 "eclipse/introduction",
                 "eclipse/quick_start",
-                "eclipse/pool",
+                "eclipse/sdk",
                 "eclipse/minting_position",
-                "eclipse/position_list",
                 "eclipse/swap",
-                "eclipse/withdraw",
                 "eclipse/invariant_errors",
               ],
             },

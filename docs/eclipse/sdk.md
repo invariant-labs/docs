@@ -1,4 +1,11 @@
+---
+title: Sdk
+
+slug: /eclipse/sdk
+---
+
 # Pair
+
 Class uniquely representing a pool. It should be created using a dedicated constructor.
 
 ```ts
