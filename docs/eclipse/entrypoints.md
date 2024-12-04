@@ -10,7 +10,7 @@ slug: /eclipse/entrypoints
 
 Entrypoint called when deploying new contract. Creates state and authority pubkey.
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction( nonce: u8)]
 pub struct CreateState<'info> {
@@ -48,7 +48,7 @@ pub struct CreateState<'info> {
 
 Admin restricted entrypoint, allows for creation of fee tiers.
 
-```rs
+```rust
 #[access_control(admin(&ctx.accounts.state, &ctx.accounts.admin))]
 pub fn create_fee_tier(
     ctx: Context<CreateFeeTier>,
@@ -68,7 +68,7 @@ pub fn create_fee_tier(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction(fee: u128, tick_spacing: u16)]
 pub struct CreateFeeTier<'info> {
@@ -116,7 +116,7 @@ pub struct CreateFeeTier<'info> {
 
 Entrypoint used for creating pools. Tickmap account key must be generated off chain. To use pool fully you must initialize reserves with a separate entrypoint.
 
-```rs
+```rust
 pub fn create_pool(ctx: Context<CreatePool>, init_tick: i32) -> Result<()> {
     ctx.accounts.handler(init_tick, ctx.bumps.pool)
 }
@@ -130,7 +130,7 @@ pub fn create_pool(ctx: Context<CreatePool>, init_tick: i32) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct CreatePool<'info> {
     #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump)]
@@ -196,7 +196,7 @@ pub struct CreatePool<'info> {
 
 Entrypoint used for initializing reserves on existing pool. It only needs to be called once after creating the pool.
 
-```rs
+```rust
 pub fn init_reserves(ctx: Context<InitReserves>) -> Result<()> {
     ctx.accounts.handler()
 }
@@ -204,7 +204,7 @@ pub fn init_reserves(ctx: Context<InitReserves>) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct InitReserves<'info> {
     #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump)]
@@ -281,7 +281,7 @@ pub struct InitReserves<'info> {
 
 Creates position list for an account, position list is unique for the entire protocol.
 
-```rs
+```rust
 pub fn create_position_list(ctx: Context<CreatePositionList>) -> Result<()> {
     ctx.accounts.handler(ctx.bumps.position_list)
 }
@@ -289,7 +289,7 @@ pub fn create_position_list(ctx: Context<CreatePositionList>) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct CreatePositionList<'info> {
     #[account(init,
@@ -324,7 +324,7 @@ pub struct CreatePositionList<'info> {
 
 Creates tick on a specified pool with specified tick index.
 
-```rs
+```rust
 pub fn create_tick(ctx: Context<CreateTick>, index: i32) -> Result<()> {
     ctx.accounts.handler(index, ctx.bumps.tick)
 }
@@ -338,7 +338,7 @@ pub fn create_tick(ctx: Context<CreateTick>, index: i32) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction( index: i32)]
 pub struct CreateTick<'info> {
@@ -416,7 +416,7 @@ pub struct CreateTick<'info> {
 
 Creates position on desired pool with liquidity spread on the range specified by the tick indexes range.
 
-```rs
+```rust
 pub fn create_position(
     ctx: Context<CreatePosition>,
     _lower_tick_index: i32,
@@ -446,7 +446,7 @@ pub fn create_position(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction( lower_tick_index: i32, upper_tick_index: i32)]
 pub struct CreatePosition<'info> {
@@ -583,7 +583,7 @@ pub struct CreatePosition<'info> {
 
 Removes position specified by the index. Index is based on all user positions.
 
-```rs
+```rust
 pub fn remove_position(
     ctx: Context<RemovePosition>,
     index: u32,
@@ -605,7 +605,7 @@ pub fn remove_position(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction(index: i32, lower_tick_index: i32, upper_tick_index: i32)]
 pub struct RemovePosition<'info> {
@@ -748,7 +748,7 @@ pub struct RemovePosition<'info> {
 
 Performs a swap w specified parameters.
 
-```rs
+```rust
 pub fn swap<'info>(
     ctx: Context<'_, '_, 'info, 'info, Swap<'info>>,
     x_to_y: bool,
@@ -771,7 +771,7 @@ pub fn swap<'info>(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct Swap<'info> {
     #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump)]
@@ -869,7 +869,7 @@ pub struct Swap<'info> {
 
 Transfers position from one account to another.
 
-```rs
+```rust
 pub fn transfer_position_ownership(
     ctx: Context<TransferPositionOwnership>,
     index: u32,
@@ -886,7 +886,7 @@ pub fn transfer_position_ownership(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction( index: u32)]
 pub struct TransferPositionOwnership<'info> {
@@ -959,7 +959,7 @@ pub struct TransferPositionOwnership<'info> {
 
 Updates seconds per liquidity parameter for a position (used with farms).
 
-```rs
+```rust
 pub fn update_seconds_per_liquidity(
     ctx: Context<UpdateSecondsPerLiquidity>,
     _lower_tick_index: i32,
@@ -980,7 +980,7 @@ pub fn update_seconds_per_liquidity(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction(lower_tick_index: i32, upper_tick_index: i32, index: i32)]
 pub struct UpdateSecondsPerLiquidity<'info> {
@@ -1057,7 +1057,7 @@ pub struct UpdateSecondsPerLiquidity<'info> {
 
 ## WithdrawProtocolFee
 
-```rs
+```rust
 #[access_control(receiver(&ctx.accounts.pool, &ctx.accounts.authority))]
 pub fn withdraw_protocol_fee(ctx: Context<WithdrawProtocolFee>) -> Result<()> {
     ctx.accounts.handler()
@@ -1066,7 +1066,7 @@ pub fn withdraw_protocol_fee(ctx: Context<WithdrawProtocolFee>) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct WithdrawProtocolFee<'info> {
     #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump)]
@@ -1149,7 +1149,7 @@ pub struct WithdrawProtocolFee<'info> {
 
 Claims fee from the specified position.
 
-```rs
+```rust
 pub fn claim_fee(
     ctx: Context<ClaimFee>,
     _index: u32,
@@ -1170,7 +1170,7 @@ pub fn claim_fee(
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 #[instruction(index: u32, lower_tick_index: i32, upper_tick_index: i32)]
 pub struct ClaimFee<'info> {
@@ -1286,7 +1286,7 @@ pub struct ClaimFee<'info> {
 
 Changes the receiver of the protocol fee for a pool. Admin only.
 
-```rs
+```rust
 #[access_control(admin(&ctx.accounts.state, &ctx.accounts.admin))]
 pub fn change_fee_receiver(ctx: Context<ChangeFeeReceiver>) -> Result<()> {
     ctx.accounts.handler()
@@ -1295,7 +1295,7 @@ pub fn change_fee_receiver(ctx: Context<ChangeFeeReceiver>) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct ChangeFeeReceiver<'info> {
     #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump)]
@@ -1338,7 +1338,7 @@ pub struct ChangeFeeReceiver<'info> {
 
 Changes the protocol fee for a pool. Admin only.
 
-```rs
+```rust
     #[access_control(receiver(&ctx.accounts.pool, &ctx.accounts.admin))]
     pub fn change_protocol_fee(
         ctx: Context<ChangeProtocolFee>,
@@ -1356,7 +1356,7 @@ Changes the protocol fee for a pool. Admin only.
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct ChangeProtocolFee<'info> {
     #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump )]
@@ -1402,7 +1402,7 @@ pub struct ChangeProtocolFee<'info> {
 
 Initialize oracle for the pool. Oracles don't work yet.
 
-```rs
+```rust
 pub fn initialize_oracle(ctx: Context<InitializeOracle>) -> Result<()> {
     ctx.accounts.handler()
 }
@@ -1410,7 +1410,7 @@ pub fn initialize_oracle(ctx: Context<InitializeOracle>) -> Result<()> {
 
 ### Context
 
-```rs
+```rust
 #[derive(Accounts)]
 pub struct InitializeOracle<'info> {
     #[account(mut,

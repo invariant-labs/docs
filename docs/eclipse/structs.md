@@ -110,7 +110,7 @@ pub struct Pool {
 
 ## PositionList
 
-```rs
+```rust
 #[account(zero_copy(unsafe))]
 #[repr(packed)]
 #[derive(PartialEq, Default, Debug, InitSpace)]
@@ -215,7 +215,7 @@ pub struct Tick {
 
 ## Oracle & Record
 
-```rs
+```rust
 #[account(zero_copy(unsafe))]
 #[repr(packed)]
 pub struct Oracle {
@@ -233,7 +233,7 @@ pub struct Oracle {
 | amount | u16           | Amount of records                   |
 | size   | u16           | Max amount of records (256)         |
 
-```rs
+```rust
 #[zero_copy(unsafe)]
 #[repr(packed)]
 pub struct Record {
