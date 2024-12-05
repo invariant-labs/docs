@@ -26,7 +26,7 @@ import { Market, Pair } from '@invariant-labs/sdk-eclipse'
 
 | Endpoint |                  Program ID                  |
 | -------- | :------------------------------------------: |
-| Devnet   | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
+<!-- | Devnet   | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  | -->
 | Testnet  | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
 | Mainnet  | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
 

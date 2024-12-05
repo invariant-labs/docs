@@ -3,180 +3,17 @@ title: Minting a Position
 
 slug: /eclipse/minting_position
 ---
+
 ## Introduction
+
 After pool creation you can create position (see [`create_position.rs`](https://github.com/invariant-labs/protocol-eclipse/blob/main/programs/invariant/src/instructions/create_position.rs)).
 
 You will learn how to create a new liquidity position, add liquidity, and then remove liquidity in this guide.
-### FeeTier
-FeeTier represents the amount of fee that would be deduced on a pool and tick spacing.
-
-```ts
-export interface FeeTier {
-  fee: BN
-  tickSpacing?: number
-}
-```
-
-FeeTiers are created by the contract administrator, and the current list of them is stored in the sdk under `FEE_TIERS`
-```ts
-export const FEE_TIERS: FeeTier[] = [
-  { fee: fromFee(new BN(10)), tickSpacing: 1 },
-  { fee: fromFee(new BN(20)), tickSpacing: 5 },
-  { fee: fromFee(new BN(50)), tickSpacing: 5 },
-  { fee: fromFee(new BN(100)), tickSpacing: 10 },
-  { fee: fromFee(new BN(300)), tickSpacing: 30 },
-  { fee: fromFee(new BN(1000)), tickSpacing: 100 }
-]
-```
-
-```ts
-constructor(first: PublicKey, second: PublicKey, feeTier: FeeTier)
-
-let pair = new Pair(tokenA, tokenB, feeTier)
-```
-
-### Pair
-Pair is a pool identifier, that consists of feeTier, tokenX and tokenY.
-```ts
-export class Pair {
-  public tokenX: PublicKey
-  public tokenY: PublicKey
-  public feeTier: FeeTier
-  public feeTierAddress: PublicKey | null
-  public tickSpacing: number
-}
-```
-Note that the pair should newer be created manually since tokenX and Y must be sorted in the same way as the contract would sort them. To ensure that's the case use the dedicated constructor.
-```ts
-constructor(first: PublicKey, second: PublicKey, feeTier: FeeTier)
-
-let pair = new Pair(tokenA, tokenB, feeTier)
-```
-
-### CreateTick
-Market method used to create a tick.
-```ts
-export interface CreateTick {
-  pair: Pair 
-  index: number
-  payer?: PublicKey
-}
-
-async createTick(createTick: CreateTick, signer: Keypair)
-```
-| Name      | Description                                                                        |
-|-----------|------------------------------------------------------------------------------------|
-| `index`   | Tick index                                                                         |
-| `payer`   | Account that will pay for allocation                                               |
-| `pair`    | Combination of `feeTier`, `tokenX`, and `tokenY` that uniquely identifies the pool |
-| `signer`  | Account that will sign the transaction                                             |
-
-### InitPosition
-Market method used to create a position list.
-
-```ts
-export interface InitPosition {
-  pair: Pair
-  owner?: PublicKey
-  userTokenX: PublicKey
-  userTokenY: PublicKey
-  lowerTick: number
-  upperTick: number
-  liquidityDelta: Decimal
-  knownPrice: Decimal
-  slippage: Decimal
-}
-
-async initPosition(initPosition: InitPosition, signer: Keypair)
-```
-
-| Name             | Description                                                                            |
-|------------------|----------------------------------------------------------------------------------------|
-| `owner`          | Account that will pay for allocation                                                   |
-| `signer`         | Account that will sign the transaction                                                 |
-| `pair`           | Combination of `feeTier`, `tokenX`, and `tokenY` that uniquely identifies the pool     |
-| `lowerTick`      | Lower tick index for the position                                                      |
-| `upperTick`      | Upper tick index for the position                                                      |
-| `liquidityDelta` | liquidity of the position                                                              |
-| `knownPrice`     | Price at which the position should be crated                                           |
-| `slippage`       | Slippage is based on price impact and calculated by dividing by `DENOMINATOR` (10^12). |
-| `userTokenX`     | User tokenX account                                                                    |
-| `userTokenY`     | User tokenY account                                                                    |
-
-### InitPoolAndPosition
-Market method used to create a position list.
-
-```ts
-export interface InitPoolAndPosition {
-  pair: Pair
-  owner?: PublicKey
-  userTokenX: PublicKey
-  userTokenY: PublicKey
-  lowerTick: number
-  upperTick: number
-  liquidityDelta: Decimal
-  knownPrice: Decimal
-  slippage: Decimal
-  initTick?: number
-}
-
-async initPoolAndPosition(createPool: InitPoolAndPosition, signer: Keypair) 
-```
-
-| Name             | Description                                                                            |
-|------------------|----------------------------------------------------------------------------------------|
-| `owner`          | Account that will pay for allocation                                                   |
-| `signer`         | Account that will sign the transaction                                                 |
-| `pair`           | Combination of `feeTier`, `tokenX`, and `tokenY` that uniquely identifies the pool     |
-| `lowerTick`      | Lower tick index for the position                                                      |
-| `upperTick`      | Upper tick index for the position                                                      |
-| `liquidityDelta` | liquidity of the position                                                              |
-| `knownPrice`     | Price at which the position should be crated                                           |
-| `slippage`       | Slippage is based on price impact and calculated by dividing by `DENOMINATOR` (10^12). |
-| `userTokenX`     | User tokenX account                                                                    |
-| `userTokenY`     | User tokenY account                                                                    |
-| `initTick`       | Init tick that defines the starting price for the pool                                 |
-
-### CreatePositionList
-Market method used to create a position.
-
-```ts
-async createPositionList(owner: PublicKey, signer: Keypair)
-```
-
-| Name      | Description                                                                        |
-|-----------|------------------------------------------------------------------------------------|
-| `owner`   | Account that will pay for allocation                                               |
-| `signer`  | Account that will sign the transaction                                             |
-
-### RemovePosition
-Market method used to create a position.
-
-```ts
-export interface RemovePosition {
-  pair: Pair
-  owner: PublicKey
-  payer?: PublicKey
-  index: number
-  userTokenX: PublicKey
-  userTokenY: PublicKey
-}
-
-async removePosition(removePosition: RemovePosition, signer)
-```
-
-| Name             | Description                                                                            |
-|------------------|----------------------------------------------------------------------------------------|
-| `owner`          | Account that will pay for transaction unless payer is specified                        |
-| `payer`          | Account that will pay for transaction                                                  |
-| `signer`         | Account that will sign the transaction                                                 |
-| `pair`           | Combination of `feeTier`, `tokenX`, and `tokenY` that uniquely identifies the pool     |
-| `userTokenX`     | User tokenX account                                                                    |
-| `userTokenY`     | User tokenY account                                                                    |
-| `index`          | Index of the position to remove                                                        |
 
 ## Examples
+
 ### Create position on existing pool
+
 Ticks and position list for the position must be created if they don't exist already.
 This can be done using createTick method.
 
@@ -185,33 +22,35 @@ This can be done using createTick method.
 const createLowerTickVars: CreateTick = {
   pair,
   index: lowerTick,
-  payer: owner.publicKey
-}
+  payer: owner.publicKey,
+};
 
 const createUpperTickVars: CreateTick = {
   pair,
   index: upperTick,
-  payer: owner.publicKey
-}
+  payer: owner.publicKey,
+};
 
-const ticks = await market.getAllIndexedTicks(pair)
+const ticks = await market.getAllIndexedTicks(pair);
 if (!ticks.get(lowerTick)) {
-  await market.createTick(createLowerTickVars, owner)
+  await market.createTick(createLowerTickVars, owner);
 }
 
 if (!ticks.get(upperTick)) {
-  await market.createTick(createUpperTickVars, owner)
+  await market.createTick(createUpperTickVars, owner);
 }
 
 // create position list if it doesn't exist yet
 try {
-  await market.getPositionList(positionOwner.publicKey)
+  await market.getPositionList(positionOwner.publicKey);
 } catch (e) {
-  await market.createPositionList(positionOwner.publicKey, positionOwner)
+  await market.createPositionList(positionOwner.publicKey, positionOwner);
 }
+const positionList = await market.getPositionList(positionOwner.publicKey);
 ```
 
-The highest amount of the liquidity for the position can be calculated based on owned token amounts using the getLiquidity function.
+The highest amount of the liquidity for the position can be calculated based on owned token amounts using the `getLiquidity` function.
+
 ```ts
 export const getLiquidity = (
   x: BN,
@@ -224,7 +63,7 @@ export const getLiquidity = (
 ): {
   x: BN
   y: BN
-  liquidity: { v: BN }
+  liquidity: BN
 }
 
 const pool = await market.getPool(pair)
@@ -243,7 +82,8 @@ const {
 )
 
 ```
-#### Create position on existing pool without wrapped ETH
+
+#### Create position on existing pool
 
 Having all the necessary data position can be created using initPosition entrypoint.
 
@@ -257,51 +97,37 @@ const initPositionVars: InitPosition = {
   upperTick,
   liquidityDelta,
   knownPrice: pool.sqrtPrice,
-  slippage: slippage
-}
-await market.initPosition(initPositionVars, positionOwner)
+  slippage: slippage,
+};
+await market.initPosition(initPositionVars, positionOwner, {
+  positionList: { head: positionList.head, initialized: true },
+  lowerTickExists: true,
+  upperTickExists: true,
+  pool,
+  tokenXProgramAddress: TOKEN_PROGRAM_ID,
+  tokenYProgramAddress: TOKEN_PROGRAM_ID,
+});
 ```
+
 #### Create position on existing pool with wrapped ETH
+
 ```ts
-let wethAmount: BN
 if (wrappedEthPair.tokenX === NATIVE_MINT) {
-  wethAmount = x
+  wethAmount = x;
 } else {
-  wethAmount = y
+  wethAmount = y;
 }
+const { createIx, initIx, transferIx, unwrapIx } =
+  createNativeAtaWithTransferInstructions(
+    wrappedEthAccount.publicKey,
+    positionOwner.publicKey,
+    Network.LOCAL,
+    wethAmount
+  );
 
-const createIx = SystemProgram.createAccount({
-  fromPubkey: positionOwner.publicKey,
-  newAccountPubkey: wrappedEthAccount.publicKey,
-  lamports: await Token.getMinBalanceRentForExemptAccount(connection),
-  space: 165,
-  programId: TOKEN_PROGRAM_ID
-})
+const slippage = toDecimal(0, 0);
 
-const transferIx = SystemProgram.transfer({
-  fromPubkey: positionOwner.publicKey,
-  toPubkey: wrappedEthAccount.publicKey,
-  lamports: wethAmount
-})
-
-const initIx = Token.createInitAccountInstruction(
-  TOKEN_PROGRAM_ID,
-  NATIVE_MINT,
-  wrappedEthAccount.publicKey,
-  positionOwner.publicKey
-)
-
-const unwrapIx = Token.createCloseAccountInstruction(
-  TOKEN_PROGRAM_ID,
-  wrappedEthAccount.publicKey,
-  positionOwner.publicKey,
-  positionOwner.publicKey,
-  []
-)
-
-const slippage = toDecimal(0, 0)
-
-let initPositionVars: InitPosition
+let initPositionVars: InitPosition;
 
 if (wrappedEthPair.tokenX === NATIVE_MINT) {
   initPositionVars = {
@@ -313,8 +139,8 @@ if (wrappedEthPair.tokenX === NATIVE_MINT) {
     upperTick,
     liquidityDelta,
     knownPrice: pool.sqrtPrice,
-    slippage: slippage
-  }
+    slippage: slippage,
+  };
 } else {
   initPositionVars = {
     pair: wrappedEthPair,
@@ -325,11 +151,11 @@ if (wrappedEthPair.tokenX === NATIVE_MINT) {
     upperTick,
     liquidityDelta,
     knownPrice: pool.sqrtPrice,
-    slippage: slippage
-  }
+    slippage: slippage,
+  };
 }
 
-const initPositionIx = await market.initPositionTx(initPositionVars)
+const initPositionIx = await market.initPositionTx(initPositionVars);
 const tx = new Transaction()
   // first 3 ixs create a weth account
   // last one returns the funds to the wallet
@@ -337,78 +163,98 @@ const tx = new Transaction()
   .add(transferIx)
   .add(initIx)
   .add(initPositionIx)
-  .add(unwrapIx)
-await signAndSend(tx, [positionOwner, wrappedEthAccount], connection)
+  .add(unwrapIx);
+await signAndSend(tx, [positionOwner, wrappedEthAccount], connection);
 ```
 
 ### Create pool and position
-Pools price is defined by a tick index, it can be calculated as follows based on real price of the tokens. Additionally to compute the 
+
+Pools price is defined by a tick index, it can be calculated as follows based on real price of the tokens.
+
 ```ts
-  const decimalsX = await tokenX.getMintInfo().then(mint => mint.decimals)
-  const decimalsY = await tokenY.getMintInfo().then(mint => mint.decimals)
+const decimalsX = await tokenX.getMintInfo().then((mint) => mint.decimals);
+const decimalsY = await tokenY.getMintInfo().then((mint) => mint.decimals);
 
-  const realPrice = 64000 // y to x token ratio
-  const priceWithDecimals = (realPrice * Math.pow(10, decimalsX)) / Math.pow(10, decimalsY)
-  const initTickPool = alignTickToSpacing(
-    priceToTick(priceWithDecimals),
-    otherFeeTier.tickSpacing!
-  )
-  const startingPrice = calculatePriceSqrt(initTickPool)
+const realPrice = 64000; // y to x token ratio
+const priceWithDecimals =
+  (realPrice * Math.pow(10, decimalsX)) / Math.pow(10, decimalsY);
+const initTickPool = alignTickToSpacing(
+  priceToTick(priceWithDecimals),
+  otherFeeTier.tickSpacing!
+);
+const startingPrice = calculatePriceSqrt(initTickPool);
 ```
-From this point the 
+
+`getLiquidity` function can be used to calculate token amounts based on current balances.
+
 ```ts
-  // liquidity can be calculated using the getLiquidity function
-  // it will return an amount of liquidity that can be payed for with both tokens
-  const tokenXAmount = new BN(20000000)
-  const tokenYAmount = new BN(20000000)
-  const {
-    x,
-    y,
-    liquidity: liquidityDelta
-  } = getLiquidity(
-    tokenXAmount,
-    tokenYAmount,
-    lowerTick,
-    upperTick,
-    startingPrice,
-    true,
-    otherPair.feeTier.tickSpacing
-  )
+const userTokenXAccount = await getOrCreateAssociatedTokenAccount(
+  connection,
+  positionOwner,
+  pair.tokenX,
+  positionOwner.publicKey
+).then((ata) => ata.address);
+const userTokenYAccount = await getOrCreateAssociatedTokenAccount(
+  connection,
+  positionOwner,
+  pair.tokenY,
+  positionOwner.publicKey
+).then((ata) => ata.address);
 
-  // the price that is calculated might differ slightly due to floating point and sdk inaccuracies so a small amount of slippage is required
-  const slippage = toDecimal(1, 2)
+// liquidity can be calculated using the getLiquidity function
+// it will return an amount of liquidity that can be payed for with both tokens
+const tokenXAmount = new BN(20000000);
+const tokenYAmount = new BN(20000000);
+const {
+  x,
+  y,
+  liquidity: liquidityDelta,
+} = getLiquidity(
+  tokenXAmount,
+  tokenYAmount,
+  lowerTick,
+  upperTick,
+  startingPrice,
+  true,
+  otherPair.feeTier.tickSpacing
+);
 
-  const initPositionVars: InitPoolAndPosition = {
-    pair: otherPair,
-    owner: positionOwner.publicKey,
-    userTokenX: userTokenXAccount,
-    userTokenY: userTokenYAccount,
-    lowerTick,
-    upperTick,
-    liquidityDelta,
-    knownPrice: startingPrice,
-    slippage: slippage,
-    initTick: initTickPool
-  }
+// the price that is calculated might differ slightly due to floating point and sdk inaccuracies so a small amount of slippage is required
+const slippage = toDecimal(1, 2);
 
-  await market.initPoolAndPosition(initPositionVars, positionOwner)
+const initPositionVars: InitPoolAndPosition = {
+  pair: otherPair,
+  owner: positionOwner.publicKey,
+  userTokenX: userTokenXAccount,
+  userTokenY: userTokenYAccount,
+  lowerTick,
+  upperTick,
+  liquidityDelta,
+  knownPrice: startingPrice,
+  slippage: slippage,
+  initTick: initTickPool,
+};
+
+await market.initPoolAndPosition(initPositionVars, positionOwner);
 ```
+
 ### RemovePosition
+
 To remove a position you need to find the id of your position. Easiest way to do that is by querying all the positions.
+
 ```ts
-const positionList: Position[] = (
-  await market.program.account.position.all([
-    {
-      memcmp: { bytes: bs58.encode(positionOwner.publicKey.toBuffer()), offset: 8 }
-    }
-  ])
-).map(({ account }) => account) as Position[]
+const positionList = await market.getAllUserPositionsWithIds(
+  positionOwner.publicKey
+);
+// Index can be picked based on the position list
+const positionToRemove = 0;
+const removedPosition = positionList.find((p) => p[0] == positionToRemove);
 
-// This can be picked based on the position list
-const positionToRemove = 0
+console.log(removedPosition);
 
-const positionId = positionList[positionToRemove].id.toNumber()
+const positionId = positionList[positionToRemove][0];
 ```
+
 #### Remove position
 
 ```ts
@@ -417,76 +263,71 @@ const removePosition: RemovePosition = {
   owner: positionOwner.publicKey,
   index: positionId,
   userTokenX: userTokenXAccount,
-  userTokenY: userTokenYAccount
-}
+  userTokenY: userTokenYAccount,
+};
 
-await market.removePosition(removePosition, positionOwner)
+await market.removePosition(removePosition, positionOwner);
 ```
 
 #### Remove position with wrapped eth
+
 ```ts
-const wrappedEthAccount = Keypair.generate()
+const wrappedEthAccount = Keypair.generate();
 
-const createIx = SystemProgram.createAccount({
-  fromPubkey: positionOwner.publicKey,
-  newAccountPubkey: wrappedEthAccount.publicKey,
-  lamports: await Token.getMinBalanceRentForExemptAccount(connection),
-  space: 165,
-  programId: TOKEN_PROGRAM_ID
-})
-
-const initIx = Token.createInitAccountInstruction(
-  TOKEN_PROGRAM_ID,
-  NATIVE_MINT,
-  wrappedEthAccount.publicKey,
-  positionOwner.publicKey
-)
-
-const unwrapIx = Token.createCloseAccountInstruction(
-  TOKEN_PROGRAM_ID,
+const { createIx, initIx, unwrapIx } = createNativeAtaInstructions(
   wrappedEthAccount.publicKey,
   positionOwner.publicKey,
-  positionOwner.publicKey,
-  []
-)
+  Network.LOCAL
+);
 
-let token: Token
+let token: Token;
 if (wrappedEthPair.tokenX === NATIVE_MINT) {
   if (wrappedEthPair.tokenY === pair.tokenX) {
-    token = tokenX
+    token = tokenX;
   } else {
-    token = tokenY
+    token = tokenY;
   }
 } else {
   if (wrappedEthPair.tokenX === pair.tokenX) {
-    token = tokenX
+    token = tokenX;
   } else {
-    token = tokenY
+    token = tokenY;
   }
 }
 
-let userTokenX
-let userTokenY
-
-const userTokenAccount = await token.createAccount(positionOwner.publicKey)
+let token: PublicKey;
 if (wrappedEthPair.tokenX === NATIVE_MINT) {
-  userTokenX = wrappedEthAccount.publicKey
-  userTokenY = userTokenAccount
+  token = wrappedEthPair.tokenY;
 } else {
-  userTokenX = userTokenAccount
-  userTokenY = wrappedEthAccount.publicKey
+  token = wrappedEthPair.tokenX;
 }
+
+let userTokenX: PublicKey;
+let userTokenY: PublicKey;
+const userTokenAccount = getAssociatedTokenAddressSync(
+  token,
+  positionOwner.publicKey
+);
+
+if (wrappedEthPair.tokenX === NATIVE_MINT) {
+  userTokenX = wrappedEthAccount.publicKey;
+  userTokenY = userTokenAccount;
+} else {
+  userTokenX = userTokenAccount;
+  userTokenY = wrappedEthAccount.publicKey;
+}
+
 const removePosition: RemovePosition = {
   pair: wrappedEthPair,
   owner: positionOwner.publicKey,
   index: positionId,
   userTokenX,
-  userTokenY
-}
+  userTokenY,
+};
 
-const removePositionIx = await market.removePositionInstruction(removePosition)
-const tx = new Transaction()
-tx.add(createIx).add(initIx).add(removePositionIx).add(unwrapIx)
+const removePositionIx = await market.removePositionInstruction(removePosition);
+const tx = new Transaction();
+tx.add(createIx).add(initIx).add(removePositionIx).add(unwrapIx);
 
-await signAndSend(tx, [positionOwner, wrappedEthAccount], connection)
+await signAndSend(tx, [positionOwner, wrappedEthAccount], connection);
 ```
