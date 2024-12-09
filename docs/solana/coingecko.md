@@ -7,7 +7,7 @@ slug: /solana/coingecko
 https://stats.invariant.app/solana/
 
 ## Endpoints
-### GET /tickers
+### GET /tickers_sorted
 Returns current price information, current TVL for a pool, and 24h volume information. 
 Pools are returned in a json array of objects containing the following keys:
 
