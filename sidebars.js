@@ -171,6 +171,7 @@ module.exports = {
                 "eclipse/structs",
                 "eclipse/types",
                 "eclipse/invariant_errors",
+                "eclipse/coingecko"
               ],
             },
           ],
