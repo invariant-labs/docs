@@ -17,5 +17,5 @@ We use the following naming standard for our functions:
 For the `fnName` function:
 
 - `fnName()` sending tx, require KeyPair to sign,
-- `fnNameInstruction()` - return instruction,
-- `fnNameTransaction()` - return transaction.
+- `fnNameIx()` - return instruction,
+- `fnNameTx()` - return transaction.

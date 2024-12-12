@@ -139,15 +139,15 @@ market.program;
 
 ## Entrypoint methods
 
-Most entrypoints have 3 methods following a pattern of `entrypointName`, `entrypointNameTransaction`, `entrypointNameInstruction`.
-`entrypointName` methods call and sign the entrypoint with the singer passed in as an argument. `entrypointNameTransaction` returns a transaction sometimes with additional instructions that are necessary for performing an action on the protocol. `entrypointNameInstruction` returns a single instruction. The exception to this rule is `createPool`.
+Most entrypoints have 3 methods following a pattern of `entrypointName`, `entrypointNameTx`, `entrypointNameIx`.
+`entrypointName` methods call and sign the entrypoint with the singer passed in as an argument. `entrypointNameTx` returns a Tx sometimes with additional instructions that are necessary for performing an action on the protocol. `entrypointNameIx` returns a single instruction. The exception to this rule is `createPool`.
 Some methods have optional parameters which contain information about the current state. When using custom caching for invariants state it's recommended to pass the data when calling these functions. Otherwise the state will be fetched from the RPC.
 
 ### CreateState
 
 ```ts
-async createStateInstruction(admin?: PublicKey)
-async createStateTransaction(admin?: PublicKey)
+async createStateIx(admin?: PublicKey)
+async createStateTx(admin?: PublicKey)
 async createState(admin: PublicKey, signer: Keypair)
 ```
 
@@ -165,8 +165,8 @@ Returns instruction or transaction with create state instruction.
 ### CreateFeeTier
 
 ```ts
-async createFeeTierInstruction(createFeeTier: CreateFeeTier)
-async createFeeTierTransaction(createFeeTier: CreateFeeTier)
+async createFeeTierIx(createFeeTier: CreateFeeTier)
+async createFeeTierTx(createFeeTier: CreateFeeTier)
 async createFeeTier(createFeeTier: CreateFeeTier)
 ```
 
@@ -192,7 +192,7 @@ Returns instruction or transaction with create fee tier instruction.
 ### CreatePool
 
 ```ts
-async createPoolTransaction(createPool: CreatePoolTx, cache: CreatePoolCache = {})
+async createPoolTx(createPool: CreatePoolTx, cache: CreatePoolCache = {})
 async createPool(createPool: CreatePool, cache: CreatePoolCache = {})
 ```
 
@@ -229,8 +229,8 @@ export interface CreatePoolTx {
 ### CreateTick
 
 ```ts
-async createTickInstruction(createTick: CreateTick, cache: CreateTickInstructionCache = {})
-async createTickTransaction(createTick: CreateTick, cache: CreateTickInstructionCache = {})
+async createTickIx(createTick: CreateTick, cache: CreateTickInstructionCache = {})
+async createTickTx(createTick: CreateTick, cache: CreateTickInstructionCache = {})
 async createTick(createTick: CreateTick, signer: Keypair, cache: CreateTickInstructionCache = {})
 ```
 
@@ -258,8 +258,8 @@ Returns instruction or transaction with create tick instruction.
 ### CreatePositionList
 
 ```ts
-async createPositionListInstruction(owner: PublicKey, signer?: PublicKey)
-async createPositionListTransaction(owner: PublicKey, signer?: PublicKey)
+async createPositionListIx(owner: PublicKey, signer?: PublicKey)
+async createPositionListTx(owner: PublicKey, signer?: PublicKey)
 async createPositionList(owner: PublicKey, signer: Keypair)
 ```
 
@@ -274,18 +274,18 @@ async createPositionList(owner: PublicKey, signer: Keypair)
 
 Returns instruction or transaction with create position list instruction.
 
-### InitPosition
+### CreatePosition
 
 ```ts
-async initPositionInstruction(initPosition: InitPosition, cache: InitPositionTransactionCache = {})
-async initPositionTransaction(initPosition: InitPosition, cache: InitPositionTransactionCache = {})
-async initPosition(initPosition: InitPosition, signer: Keypair, cache: InitPositionTransactionCache = {})
+async createPositionIx(createPosition: CreatePosition, cache: CreatePositionTransactionCache = {})
+async createPositionTx(createPosition: CreatePosition, cache: CreatePositionTransactionCache = {})
+async createPosition(createPosition: CreatePosition, signer: Keypair, cache: CreatePositionTransactionCache = {})
 ```
 
 #### Params
 
 ```ts
-export interface InitPosition {
+export interface CreatePosition {
   pair: Pair;
   owner?: PublicKey;
   userTokenX: PublicKey;
@@ -300,7 +300,7 @@ export interface InitPosition {
 
 | Name           | Type      | Description                                                                            |
 | -------------- | --------- | -------------------------------------------------------------------------------------- |
-| pair           | Pair      |                                                                                        |
+| pair           | Pair      | Unique pool identifier                                                                 |
 | owner          | PublicKey | Account that will pay for allocation                                                   |
 | signer         | Keypair   | Account that will sign the transaction                                                 |
 | lowerTick      | number    | Lower tick index for the position                                                      |
@@ -313,43 +313,71 @@ export interface InitPosition {
 
 #### Return
 
-| Method                  | Description                                                                                                                                                                                                        |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| initPositionInstruction | Create position instruction                                                                                                                                                                                        |
-| initPositionTransaction | Transaction with create position instruction. If either of the ticks or position list doesn't exist, transaction will contain createTick instructions for the position ticks, and createPositionList instructions. |
+| Method           | Description                                                                                                                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| createPositionIx | Create position instruction                                                                                                                                                                                        |
+| createPositionTx | Transaction with create position instruction. If either of the ticks or position list doesn't exist, transaction will contain createTick instructions for the position ticks, and createPositionList instructions. |
 
-### InitPoolAndPosition
+### CreatePoolAndPosition
 
 This methods combines create pool and create position into one method.
 
 ```ts
-async initPoolAndPositionTx(createPool: InitPoolAndPosition, payer?: Keypair, cache: initPoolAndPositionCache = {})
-async initPoolAndPosition(createPool: InitPoolAndPosition, signer: Keypair, cache: initPoolAndPositionCache = {})
+async createPoolAndPositionTx(params: CreatePoolAndPosition, payer?: { publicKey: PublicKey }, cache: CreatePoolAndPositionCache = {})
+async createPoolAndPosition(createPool: CreatePoolAndPosition, signer: Keypair, cache: CreatePoolAndPositionCache = {})
 ```
 
-#### Params
-
 ```ts
-export interface InitPoolAndPosition extends InitPosition {
+export interface CreatePoolAndPosition extends CreatePosition {
   initTick?: number;
 }
 ```
 
+#### Params
+
+| Name         | Type                            | Description                         |
+| ------------ | ------------------------------- | ----------------------------------- |
+| initTick     | number                          | Initial price tick for the pool.    |
+| signer/payer | Keypair/{publicKey: PublicKey } | Owner of the pool and the position. |
+
 #### Return
 
-| Name           | Type        | Description                                                                                                                                                         |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| initPoolTx     | Transaction | Create pool transaction. Containing initReserves and createPool instructions.                                                                                       |
-| initPositionTx | Transaction | Transaction with create position instruction and createTick instructions. If position list doesn't exist, transaction will contain createPositionList instructions. |
-| signers        | Keypair[]   | Array of signers with reserve and tickmap accounts.                                                                                                                 |
+| Name              | Type        | Description                                                                                                                                                         |
+| ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| createPoolTx      | Transaction | Create pool transaction. Containing initReserves and createPool instructions.                                                                                       |
+| createPositionTx  | Transaction | Transaction with create position instruction and createTick instructions. If position list doesn't exist, transaction will contain createPositionList instructions. |
+| createPoolSigners | Keypair[]   | Array of signers with reserve and tickmap accounts.                                                                                                                 |
+
+### CreatePoolWithSqrtPriceAndPosition
+
+```ts
+async createPoolWithSqrtPriceAndPositionTx(params: CreatePosition, payer?: { publicKey: PublicKey }, cache: CreatePoolAndPositionCache = {})
+async createPoolWithSqrtPriceAndPosition(params: CreatePosition, signer: Keypair, cache: CreatePoolAndPositionCache = {})
+```
+
+#### Params
+
+Initial price for the pool is taken from the position being created.
+
+| Name         | Type                            | Description                         |
+| ------------ | ------------------------------- | ----------------------------------- |
+| signer/payer | Keypair/{publicKey: PublicKey } | Owner of the pool and the position. |
+
+#### Return
+
+| Name              | Type        | Description                                                                                                                                                         |
+| ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| createPoolTx      | Transaction | Create pool transaction. Containing initReserves and createPool instructions.                                                                                       |
+| createPositionTx  | Transaction | Transaction with create position instruction and createTick instructions. If position list doesn't exist, transaction will contain createPositionList instructions. |
+| createPoolSigners | Keypair[]   | Array of signers with reserve and tickmap accounts.                                                                                                                 |
 
 ### Swap
 
 Performs a swap operation on the protocol. This function allows for passing Tick account addresses explicitly or computes them based on the limit provided in `{tickCrosses: LIMIT}` struct. In case of swaps where native tokens are used and the transaction is batched with creating, initializing and unwrapping ata account limit is given by `TICK_CROSSES_PER_IX_NATIVE_TOKEN` and should be passed explicitly. Determine necessary tick addresses based on `simulateSwap` function to lower the transaction cost.
 
 ```ts
-async swapInstruction(swap: Swap, cache: SwapCache = {}, ticks: Ticks = { tickCrosses: TICK_CROSSES_PER_IX })
-async swapTransaction(swap: Swap, cache: SwapCache = {}, ticks: Ticks = { tickCrosses: TICK_CROSSES_PER_IX })
+async swapIx(swap: Swap, cache: SwapCache = {}, ticks: Ticks = { tickCrosses: TICK_CROSSES_PER_IX })
+async swapTx(swap: Swap, cache: SwapCache = {}, ticks: Ticks = { tickCrosses: TICK_CROSSES_PER_IX })
 async swap(swap: Swap, signer: Keypair, cache: SwapCache = {}, ticks: Ticks = { tickCrosses: TICK_CROSSES_PER_IX })
 ```
 
@@ -391,8 +419,8 @@ Swap instruction or transaction with swap instruction.
 ### ClaimFee
 
 ```ts
-async claimFeeInstruction(claimFee: ClaimFee, cache: ClaimFeeCache = {})
-async claimFeeTransaction(claimFee: ClaimFee, cache: ClaimFeeCache = {})
+async claimFeeIx(claimFee: ClaimFee, cache: ClaimFeeCache = {})
+async claimFeeTx(claimFee: ClaimFee, cache: ClaimFeeCache = {})
 async claimFee(claimFee: ClaimFee, signer: Keypair, cache: ClaimFeeCache = {})
 ```
 
@@ -424,8 +452,8 @@ Claim fee instruction or transaction with claim fee instruction.
 ### WithdrawProtocolFee
 
 ```ts
-async withdrawProtocolFeeInstruction(withdrawProtocolFee: WithdrawProtocolFee, cache: WithdrawProtocolFeeCache = {})
-async withdrawProtocolFeeTransaction(withdrawProtocolFee: WithdrawProtocolFee, cache: WithdrawProtocolFeeCache = {})
+async withdrawProtocolFeeIx(withdrawProtocolFee: WithdrawProtocolFee, cache: WithdrawProtocolFeeCache = {})
+async withdrawProtocolFeeTx(withdrawProtocolFee: WithdrawProtocolFee, cache: WithdrawProtocolFeeCache = {})
 async withdrawProtocolFee(withdrawProtocolFee: WithdrawProtocolFee, signer: Keypair, cache: WithdrawProtocolFeeCache = {})
 ```
 
@@ -455,8 +483,8 @@ Returns withdraw protocol fee instruction or transaction with protocol fee instr
 ### UpdateSecondsPerLiquidity
 
 ```ts
-async updateSecondsPerLiquidityInstruction(updateSecondsPerLiquidity: UpdateSecondsPerLiquidity)
-async updateSecondsPerLiquidityTransaction(updateSecondsPerLiquidity: UpdateSecondsPerLiquidity)
+async updateSecondsPerLiquidityIx(updateSecondsPerLiquidity: UpdateSecondsPerLiquidity)
+async updateSecondsPerLiquidityTx(updateSecondsPerLiquidity: UpdateSecondsPerLiquidity)
 async updateSecondsPerLiquidity(updateSecondsPerLiquidity: UpdateSecondsPerLiquidity, signer: Keypair)
 ```
 
@@ -488,8 +516,8 @@ Return update seconds per liquidity instruction or transaction with the update s
 ### ChangeProtocolFee
 
 ```ts
-async changeProtocolFeeInstruction(changeProtocolFee: ChangeProtocolFee)
-async changeProtocolFeeTransaction(changeProtocolFee: ChangeProtocolFee)
+async changeProtocolFeeIx(changeProtocolFee: ChangeProtocolFee)
+async changeProtocolFeeTx(changeProtocolFee: ChangeProtocolFee)
 async changeProtocolFee(changeProtocolFee: ChangeProtocolFee, signer: Keypair)
 ```
 
@@ -517,8 +545,8 @@ Returns change protocol fee instruction or transaction with protocol fee instruc
 ### TransferPositionOwnership
 
 ```ts
-async transferPositionOwnershipInstruction(transferPositionOwnership: TransferPositionOwnership, cache: TransferPositionCache = {})
-async transferPositionOwnershipTransaction(transferPositionOwnership: TransferPositionOwnership, cache: TransferPositionCache = {})
+async transferPositionOwnershipIx(transferPositionOwnership: TransferPositionOwnership, cache: TransferPositionCache = {})
+async transferPositionOwnershipTx(transferPositionOwnership: TransferPositionOwnership, cache: TransferPositionCache = {})
 async transferPositionOwnership(transferPositionOwnership: TransferPositionOwnership, signer: Keypair, cache: TransferPositionCache = {})
 ```
 
@@ -1018,7 +1046,7 @@ getPositionAddress(owner: PublicKey, index: number): {positionAddress: PublicKey
 Returns the address of a new position.
 
 ```ts
-async getNewPositionAddress(owner: PublicKey, positionListHead?: number)
+async getNewPositionAddress(owner: PublicKey, positionListHead?: number): {positionAddress: PublicKey, positionBump: number}
 ```
 
 #### Params
@@ -1038,8 +1066,10 @@ getStateAddress(): AddressAndBump
 
 ### getFeeTierAddress
 
+Returns the address of the provided fee tier.
+
 ```ts
-getFeeTierAddress(feeTier: FeeTier)
+getFeeTierAddress(feeTier: FeeTier): AddressAndBump
 ```
 
 #### Params
@@ -1047,6 +1077,14 @@ getFeeTierAddress(feeTier: FeeTier)
 | Name    | Type    | Description     |
 | ------- | ------- | --------------- |
 | feeTier | FeeTier | FeeTier struct. |
+
+### getEventOptAccount
+
+Returns the address of the account used for optimizing event queries, this account will always be present in a transaction if an event may occur.
+
+```ts
+getEventOptAccount(): AddressAndBump
+```
 
 # Utils
 
@@ -1216,6 +1254,39 @@ export interface WrappedEthTransferInstructions extends WrappedEthInstructions {
 | transferIx | TransactionInstruction | Transfer instruction only needed if you pass tokens to the protocol. |
 
 # Types
+
+## Event types
+
+These types describe events emitted by invariant contract.
+
+```ts
+export interface RemovePositionEvent {
+  owner: PublicKey;
+  pool: PublicKey;
+  id: BN;
+  liquidity: BN;
+  upperTick: number;
+  lowerTick: number;
+  currentTick: number;
+  upperTickSecondsPerLiquidityOutside: BN;
+  lowerTickSecondsPerLiquidityOutside: BN;
+  poolSecondsPerLiquidityGlobal: BN;
+  currentTimestamp: BN;
+}
+```
+
+```ts
+export interface CreatePositionEvent {
+  owner: PublicKey;
+  pool: PublicKey;
+  id: BN;
+  liquidity: BN;
+  upperTick: number;
+  lowerTick: number;
+  currentTimestamp: BN;
+  secondsPerLiquidityInsideInitial: BN;
+}
+```
 
 ## State types
 
@@ -1434,7 +1505,7 @@ export interface TickmapWithReserves {
 ```
 
 ```ts
-export interface InitPositionInstructionCache {
+export interface CreatePositionInstructionCache {
   pool?: TickmapWithReserves;
   positionList?: PositionListCache;
   tokenXProgramAddress?: PublicKey;
@@ -1443,8 +1514,8 @@ export interface InitPositionInstructionCache {
 ```
 
 ```ts
-export interface InitPositionTransactionCache
-  extends InitPositionInstructionCache {
+export interface CreatePositionTransactionCache
+  extends CreatePositionInstructionCache {
   lowerTickExists?: boolean;
   upperTickExists?: boolean;
 }
@@ -1467,7 +1538,7 @@ export interface CreatePoolCache {
 ```
 
 ```ts
-export interface initPoolAndPositionCache extends CreatePoolCache {
+export interface CreatePoolAndPositionCache extends CreatePoolCache {
   positionList?: PositionListCache;
 }
 ```
