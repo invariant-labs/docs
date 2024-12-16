@@ -118,7 +118,7 @@ Entrypoint used for creating pools. Tickmap account key must be generated off ch
 
 ```rust
 pub fn create_pool(ctx: Context<CreatePool>, init_tick: i32) -> Result<()> {
-    ctx.accounts.handler(init_tick, ctx.bumps.pool)
+    ctx.accounts.tick_handler(init_tick, ctx.bumps.pool)
 }
 ```
 
@@ -188,9 +188,91 @@ pub struct CreatePool<'info> {
 
 #### Errors
 
-| Code               | Description                                                                    |
-| ------------------ | ------------------------------------------------------------------------------ |
-| `InvalidTickIndex` | Initial tick not divisible by spacing or outside of size limit or price limit. |
+| Code                        | Description                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| `InvalidTickIndex`          | Initial tick not divisible by spacing or outside of size limit or price limit. |
+| `InvalidPoolTokenAddresses` | Tokens were not sorted correctly or are the same.                              |
+
+## CreatePoolWithSqrtPrice
+
+Entrypoint used for creating pools. Tickmap account key must be generated off chain. To use pool fully you must initialize reserves with a separate entrypoint.
+
+```rust
+pub fn create_pool_with_sqrt_price(ctx: Context<CreatePool>, init_price: Price) -> Result<()> {
+    ctx.accounts.sqrt_price_handler(init_price, ctx.bumps.pool)
+}
+```
+
+#### Entrypoint Params
+
+| Name       | Type  | Description                             |
+| ---------- | ----- | --------------------------------------- |
+| init_price | Price | Initial price square root for the pool. |
+
+### Context
+
+```rust
+#[derive(Accounts)]
+pub struct CreatePool<'info> {
+    #[account(seeds = [b"statev1".as_ref()], bump = state.load()?.bump)]
+    pub state: AccountLoader<'info, State>,
+    #[account(init,
+        seeds = [b"poolv1", token_x.to_account_info().key.as_ref(), token_y.to_account_info().key.as_ref(), &fee_tier.load()?.fee.v.to_le_bytes(), &fee_tier.load()?.tick_spacing.to_le_bytes()],
+        bump, payer = payer, space = Pool::LEN
+    )]
+    pub pool: AccountLoader<'info, Pool>,
+    #[account(
+        seeds = [b"feetierv1", __program_id.as_ref(), &fee_tier.load()?.fee.v.to_le_bytes(), &fee_tier.load()?.tick_spacing.to_le_bytes()],
+        bump = fee_tier.load()?.bump
+    )]
+    pub fee_tier: AccountLoader<'info, FeeTier>,
+    #[account(zero)]
+    pub tickmap: AccountLoader<'info, Tickmap>,
+
+    #[account(
+        mint::token_program = token_x_program
+    )]
+    pub token_x: Box<InterfaceAccount<'info, Mint>>,
+    #[account(
+        mint::token_program = token_y_program
+    )]
+    pub token_y: Box<InterfaceAccount<'info, Mint>>,
+
+    #[account(mut)]
+    pub payer: Signer<'info>,
+
+    #[account(constraint = token_x_program.key() == token::ID || token_x_program.key() == token_2022::ID)]
+    pub token_x_program: Interface<'info, TokenInterface>,
+    #[account(constraint = token_y_program.key() == token::ID || token_y_program.key() == token_2022::ID)]
+    pub token_y_program: Interface<'info, TokenInterface>,
+    pub rent: Sysvar<'info, Rent>,
+    #[account(address = system_program::ID)]
+    /// CHECK: ignore
+    pub system_program: AccountInfo<'info>,
+}
+```
+
+#### Accounts
+
+| Name            | Type                | Description                                                          |
+| --------------- | ------------------- | -------------------------------------------------------------------- |
+| state           | State               | State account of the protocol.                                       |
+| fee_tier        | FeeTier             | FeeTier that the tick spacing and fee percentage will be taken from. |
+| tickmap         | Tickmap             | Empty account that will be used to store tickmap.                    |
+| token_x         | Mint                | Token X Mint account.                                                |
+| token_y         | Mint                | Token Y Mint account.                                                |
+| payer           | Signer              | Signer of the transaction.                                           |
+| token_x_program | TokenInterface      | Token X associated program account.                                  |
+| token_y_program | TokenInterface      | Token Y associated program account.                                  |
+| rent            | Sysvar<'info, Rent> | System rent account.                                                 |
+| system_program  | AccountInfo         | System program account.                                              |
+
+#### Errors
+
+| Code                        | Description                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| `InvalidTickIndex`          | Initial tick not divisible by spacing or outside of size limit or price limit. |
+| `InvalidPoolTokenAddresses` | Tokens were not sorted correctly or are the same.                              |
 
 ## InitReserves
 
@@ -529,6 +611,9 @@ pub struct CreatePosition<'info> {
     #[account(address = system_program::ID)]
     /// CHECK: ignore
     pub system_program: AccountInfo<'info>,
+    /// CHECK: Accounts used for RPC calls optimization
+    #[account(address = Pubkey::find_program_address(&[b"eventoptaccv1"], __program_id).0)]
+    pub event_opt_acc: AccountInfo<'info>,
 }
 ```
 
@@ -694,6 +779,9 @@ pub struct RemovePosition<'info> {
     pub token_x_program: Interface<'info, TokenInterface>,
     #[account(constraint = token_y_program.key() == token::ID || token_y_program.key() == token_2022::ID)]
     pub token_y_program: Interface<'info, TokenInterface>,
+    /// CHECK: Accounts used for RPC calls optimization
+    #[account(address = Pubkey::find_program_address(&[b"eventoptaccv1"], __program_id).0)]
+    pub event_opt_acc: AccountInfo<'info>,
 }
 ```
 
@@ -729,6 +817,7 @@ pub struct RemovePosition<'info> {
 | removed_position  | Position       | Position that will be removed.                                         |
 | last_position     | Position       | Last position of the users list.                                       |
 | program_authority | AccountInfo    | Protocol authority account.                                            |
+| event_opt_acc     | AccountInfo    | Empty account used for optimizing event queries.                       |
 
 #### Errors
 
@@ -844,6 +933,7 @@ pub struct Swap<'info> {
 | token_y            | Mint               | Token Y mint account.                                        |
 | program_authority  | AccountInfo        | Protocol authority account.                                  |
 | remaining_accounts | Vec\<AccountInfo\> | Tick account addresses that could be used in the swap.       |
+| event_opt_acc      | AccountInfo        | Empty account used for optimizing event queries.             |
 
 #### Errors
 

@@ -246,3 +246,44 @@ pub struct Record {
 | --------- | ----- | --------------------------------------- |
 | timestamp | u64   | Timestamp of the price                  |
 | price     | Price | Square root of price at given timestamp |
+
+# Events
+
+This section describes events emitted by the protocol.
+
+## CreatePositionEvent
+
+Event emitted at the moment of creating the position. It's a part of the new position account state.
+
+```rust
+#[event]
+pub struct CreatePositionEvent {
+    pub owner: Pubkey,
+    pub pool: Pubkey,
+    pub id: u128,
+    pub liquidity: Liquidity,
+    pub lower_tick: i32,
+    pub upper_tick: i32,
+    pub current_timestamp: u64,
+    pub seconds_per_liquidity_inside_initial: SecondsPerLiquidity,
+}
+```
+
+Event emitted at the moment of removing the position. It's a part of the removed position account state. combined with global seconds per liquidity and initial tick from the pool state.
+
+```rust
+#[event]
+pub struct RemovePositionEvent {
+    pub owner: Pubkey,
+    pub pool: Pubkey,
+    pub id: u128,
+    pub liquidity: Liquidity,
+    pub upper_tick: i32,
+    pub current_tick: i32,
+    pub lower_tick: i32,
+    pub upper_tick_seconds_per_liquidity_outside: SecondsPerLiquidity,
+    pub lower_tick_seconds_per_liquidity_outside: SecondsPerLiquidity,
+    pub pool_seconds_per_liquidity_global: SecondsPerLiquidity,
+    pub current_timestamp: u64,
+}
+```
