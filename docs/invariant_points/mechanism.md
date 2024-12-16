@@ -108,7 +108,7 @@ If the price moves to **1.0004:**
 
 If you already have experience with providing liquidity in the **CLMM** model, here are a few conclusions that will help you efficiently accumulate points right away.
 
-- **The larger the position, the more points you earn.**
+- **The larger the position(TVL), the more points you earn.**
 - **The narrower the range of the position (higher concentration), the more points you earn.**
 - **The longer the position remains active, the more points you accumulate.**
 - **The wider the position, the more consistent your point earnings become.**
