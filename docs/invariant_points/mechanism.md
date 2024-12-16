@@ -1,0 +1,116 @@
+---
+title: Mechanism
+
+slug: /invariant_points/mechanism
+---
+
+## Points Distribution Algorithm
+
+Let’s explain in detail how the point allocation algorithm works.
+The primary goal of the algorithm is to reward "efficient liquidity". To understand what efficient liquidity means, we first need to grasp how CLMM DEXs like Invariant operate.
+
+### Difference Between AMM(Automated Market Maker) and CLMM(Concentrated Liquidity Market Maker)
+
+Without diving into overly complex details, the key difference in providing liquidity between AMMs and CLMMs lies in the range of price coverage.
+
+In an AMM model, liquidity is provided across the entire price range, while in a CLMM model, liquidity can be concentrated more efficiently near the current price range (see image).
+
+![Example1](/img/docs/app/invariant_points/invariant_points_clmmamm.png)
+
+This approach allows capital to be utilized far more effectively, enabling users to earn significantly higher fees from liquidity provision.
+Having that in mind, let’s familiarize ourselves with the definition of the current price range. It is simply the price range within which a given token has fluctuated during a specific time interval (e.g., 1 hour, 4 hours, 24 hours, 7 days).
+
+### Algorithm Overview
+
+Points are calculated based on the duration for which user-created positions remain active, provided the token price stays within the specified range at the time of position creation.
+
+Each promoted pool allocates a fixed number of points (**10,000 points per second**) for distribution among all active positions. These points are distributed proportionally to the liquidity contributed by each position. The liquidity parameter also reflects the position's concentration: narrower ranges result in higher liquidity parameters. This approach rewards participants who take on greater risk by selecting narrower ranges, ensuring fairness.
+
+The points per second remain constant and are divided among all qualifying positions. This system incentivize early participation, as positions created earlier earn more points for the same dollar of **TVL**.
+
+The model prioritizes effective liquidity that actively contributes to volume growth, rather than idle liquidity. This design allows users with smaller capital to compete effectively with larger players.
+
+Our approach encourages smart, engaged participants rather than passive users seeking airdrops without genuine involvement. By doing so, we reduce the influence of airdrop hunters and distribute rewards more broadly, increasing their value for active participants.
+
+### Math explanation
+
+Every reward is calculated using the following formula:
+
+$$
+\text{Reward} = \frac{\text{SecondsInside} \cdot \text{Liquidity} \cdot \text{Points}}{\text{SecondsTotal}}
+$$
+
+Where:
+
+- **SecondsInside** - Proportional to the duration (in seconds) that the position was active within the specified range.
+
+- **Liquidity** - The position's share of the liquidity pool, which also factors in the concentration of the liquidity.
+
+- **SecondsTotal** - The total duration (in seconds) since the position was created, calculated as:
+
+$$
+       \text{SecondsTotal} = \text{CurrentTimestamp} - \text{CreatePositionTimestamp}
+$$
+
+- **Points** - number of points to distribute, calculated using formula:
+
+$$
+        \text{Points} = \text{SecondsTotal} \cdot \text{PointsToDistribute}
+$$
+
+### Example 1
+
+You create two identical positions in the same promoted pool. Both positions are full-range and provide the same ratio of tokens.
+
+Let's say the pool is ETH/USDC with an initial price of 0.01 ETH per USDC. Both positions provide 0.1 ETH and 10 USDC each, resulting in identical liquidity parameters due to the same range and token amounts.
+Assume that the positions are created simultaneously, and we calculate points after 1 second of activity.
+
+$$
+        \text{SecondsTotal}_1 = \text{SecondsTotal}_2 = 1
+$$
+
+$$
+       \text{SecondsInside}_1 = \text{SecondsInside}_2 = 1 \cdot 50\% = 0.5
+$$
+
+$$
+       \text{Reward}_1 = \text{Reward}_2 = 0.5 \cdot 10000 \cdot 1 = 5000
+$$
+
+**Result:**
+
+Both positions will be granted 5000 points
+
+### Example 2
+
+You create two positions in a USDC/USDT pool with a price of 1 USDC per USDT.
+
+(\*Both positions contribute an equal amount of tokens to the pool.)
+
+- **Position 1**: Narrow range (0.9999 - 1.0001).
+- **Position 2**: Wider range (0.9995 - 1.0005).
+
+  When both positions are active:
+
+- **Position 1** receives only ⅙ (1000 points) of the distributed points due to its wider range.
+- **Position 2** receives ⅚ (5000 points) of the distributed points due to its narrower range (higher concentration).
+
+![Example1](/img/docs/app/invariant_points/invariant_points_example1.png)
+
+If the price moves to **1.0004:**
+
+- **Position 1** becomes the sole active position and collects all distributed points(6000 points) during this time.
+- **Position 2** is no longer active (falls out of range, not collecting fee and accruing points).
+
+![Example2](/img/docs/app/invariant_points/invariant_points_example2.png)
+
+### Conclusions
+
+If you already have experience with providing liquidity in the **CLMM** model, here are a few conclusions that will help you efficiently accumulate points right away.
+
+- **The larger the position, the more points you earn.**
+- **The narrower the range of the position (higher concentration), the more points you earn.**
+- **The longer the position remains active, the more points you accumulate.**
+- **The wider the position, the more consistent your point earnings become.**
+
+If you're not familiar with concentrated liquidity but want to start earning points right away, we recommend creating a full-range position (similar to classic **AMM**) while getting acquainted with the concentrated liquidity model, as providing liquidity in this model will earn you the most points.

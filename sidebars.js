@@ -116,6 +116,7 @@ module.exports = {
             },
           ],
         },
+
         {
           type: "category",
           label: "Eclipse",
@@ -171,7 +172,7 @@ module.exports = {
                 "eclipse/structs",
                 "eclipse/types",
                 "eclipse/invariant_errors",
-                "eclipse/coingecko"
+                "eclipse/coingecko",
               ],
             },
           ],
@@ -370,6 +371,13 @@ module.exports = {
         },
       ],
     },
+
+    // {
+    //   type: "category",
+    //   label: "Invariant Points",
+    //   // collapsed: true,
+    //   items: ["invariant_points/general", "invariant_points/mechanism"],
+    // },
 
     "faq",
     "resources",
