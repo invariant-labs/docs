@@ -87,8 +87,8 @@ You create two positions in a USDC/USDT pool with a price of 1 USDC per USDT.
 
 (\*Both positions contribute an equal amount of tokens to the pool.)
 
-- **Position 1**: Narrow range (0.9999 - 1.0001).
-- **Position 2**: Wider range (0.9995 - 1.0005).
+- **Position 1**: Wider range (0.9995 - 1.0005).
+- **Position 2**: Narrow range (0.9999 - 1.0001).
 
   When both positions are active:
 
