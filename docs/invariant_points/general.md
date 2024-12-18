@@ -37,13 +37,6 @@ Algorithm takes into account the concentration of a position, not just its TVL. 
 
 We reward both TVL and skill. If you're good at concentrated liquidity, you can make your capital work as if it were larger.
 
-### Rewards
-
-Users of the Invariant Point System will receive allocations for airdrops proportional to the number of points they have accumulated.
-
-There will be at least a few airdrops.
-Rewards will be distributed at various stages during the Invariant Points Program based on the number of points users hold at the time, so it’s worth aiming to rank as high as possible from the very beginning.
-
 ### OG Users
 
 We highly value our OG Users, which is why our algorithm prioritizes them in the initial phase.
@@ -53,6 +46,13 @@ Every second, the algorithm distributes a constant number of points. If two iden
 Essentially, being early is advantageous, as the number of positions competing for points will increase with each passing day. This ensures that early users have an advantage at the start.
 
 This points distribution system will be adjusted after the early phase.
+
+### Rewards
+
+Users of the Invariant Point System will receive allocations for airdrops proportional to the number of points they have accumulated.
+
+There will be at least a few airdrops.
+Rewards will be distributed at various stages during the Invariant Points Program based on the number of points users hold at the time, so it’s worth aiming to rank as high as possible from the very beginning.
 
 ### Duration
 
