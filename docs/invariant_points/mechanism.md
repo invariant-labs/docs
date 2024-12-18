@@ -24,7 +24,7 @@ Having that in mind, let’s familiarize ourselves with the definition of the cu
 
 Points are calculated based on the duration for which user-created positions remain active, provided the token price stays within the specified range at the time of position creation.
 
-Each promoted pool allocates a fixed number of points (**10,000 points per second**) for distribution among all active positions. These points are distributed proportionally to the liquidity contributed by each position. The liquidity parameter also reflects the position's concentration: narrower ranges result in higher liquidity parameters. This approach rewards participants who take on greater risk by selecting narrower ranges, ensuring fairness.
+Each promoted pool allocates a fixed number of points for distribution among all active positions. These points are distributed proportionally to the liquidity contributed by each position. The liquidity parameter also reflects the position's concentration: narrower ranges result in higher liquidity parameters. This approach rewards participants who take on greater risk by selecting narrower ranges, ensuring fairness.
 
 The points per second remain constant and are divided among all qualifying positions. This system incentivize early participation, as positions created earlier earn more points for the same dollar of **TVL**.
 
