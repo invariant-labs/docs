@@ -64,7 +64,7 @@ If you're new to Invariant, the best way to start earning points is by providing
 
 Here you have all the useful links:
 
-Invariant Points
+[Invariant Points](https://eclipse.invariant.app/points)
 
 Announcement on X
 

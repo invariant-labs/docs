@@ -113,4 +113,6 @@ If you already have experience with providing liquidity in the **CLMM** model, h
 - **The longer the position remains active, the more points you accumulate.**
 - **The wider the position, the more consistent your point earnings become.**
 
+![Diagram](/img/docs/app/invariant_points/invariant_points_diagram.png)
+
 If you're not familiar with concentrated liquidity but want to start earning points right away, we recommend creating a full-range position (similar to classic **AMM**) while getting acquainted with the concentrated liquidity model, as providing liquidity in this model will earn you the most points.
