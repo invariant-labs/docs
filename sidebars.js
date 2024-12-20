@@ -372,12 +372,12 @@ module.exports = {
       ],
     },
 
-    // {
-    //   type: "category",
-    //   label: "Invariant Points",
-    //   // collapsed: true,
-    //   items: ["invariant_points/general", "invariant_points/mechanism"],
-    // },
+    {
+      type: "category",
+      label: "Invariant Points",
+      // collapsed: true,
+      items: ["invariant_points/general", "invariant_points/mechanism"],
+    },
 
     "faq",
     "resources",
