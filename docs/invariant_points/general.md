@@ -11,7 +11,7 @@ slug: /invariant_points/overview
 Invariant Points program is designed to reward our users and show appreciation to those who supported us during the early stages and actively engaged with our protocol.
 Users can earn points through various activities on Invariant, such as providing liquidity, completing quests, or contributing to the community.
 
-These accumulated points can later be redeemed for multiple airdrops and rewards as part of our commitment to our community.
+These accumulated points can later be redeemed for exclusive benefits as part of our commitment to our community.
 Our goal is for the Invariant Points system to be more than just a loyalty program – it’s an invitation to help us build a strong, trust-driven, and engaged ecosystem.
 
 ### Main goal
@@ -49,10 +49,9 @@ This points distribution system will be adjusted after the early phase.
 
 ### Rewards
 
-Users of the Invariant Point System will receive allocations for airdrops proportional to the number of points they have accumulated.
+Users of the Invariant Point System will receive allocations for exclusive benefits proportional to the number of points they have accumulated.
 
-There will be at least a few airdrops.
-Rewards will be distributed at various stages during the Invariant Points Program based on the number of points users hold at the time, so it’s worth aiming to rank as high as possible from the very beginning.
+Benefits will be distributed at various stages during the Invariant Points Program based on the number of points users hold at the time, so it’s worth aiming to rank as high as possible from the very beginning.
 
 ### Duration
 
