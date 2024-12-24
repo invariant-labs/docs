@@ -47,12 +47,6 @@ Essentially, being early is advantageous, as the number of positions competing f
 
 This points distribution system will be adjusted after the early phase.
 
-### Rewards
-
-Users of the Invariant Point System will receive allocations for exclusive benefits proportional to the number of points they have accumulated.
-
-Benefits will be distributed at various stages during the Invariant Points Program based on the number of points users hold at the time, so it’s worth aiming to rank as high as possible from the very beginning.
-
 ### Duration
 
 The Invariant Points Program will run throughout 2025 with no specific end date.
@@ -65,6 +59,6 @@ Here you have all the useful links:
 
 [Invariant Points](https://eclipse.invariant.app/points)
 
-Announcement on X
+[Announcement on X](https://x.com/invariant_labs/status/1870152204797317272)
 
 [Discord](https://discord.com/invite/w6hTeWTJvG)
