@@ -376,7 +376,11 @@ module.exports = {
       type: "category",
       label: "Invariant Points",
       // collapsed: true,
-      items: ["invariant_points/general", "invariant_points/mechanism"],
+      items: [
+        "invariant_points/general",
+        "invariant_points/mechanism",
+        "invariant_points/api",
+      ],
     },
 
     "faq",
