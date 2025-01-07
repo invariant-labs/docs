@@ -4,21 +4,92 @@ const math = require("remark-math");
 const katex = require("rehype-katex");
 
 module.exports = {
-  title: "Invariant docs",
-  tagline:
-    "Peer-to-peer system for exchanging assets on the Solana blockchain.",
-  url: "https://invariant.app/",
+  title: "Invariant Docs",
+  tagline: "Comprehensive guide for using Invariant DEX.",
+  url: "https://docs.invariant.app",
   baseUrl: "/",
   onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon-16x16.png",
   organizationName: "Invariant",
   projectName: "Invariant docs",
+
   themeConfig: {
-    prism: {
-      theme: require("prism-react-renderer/themes/vsDark"),
-      additionalLanguages: ["rust"],
-    },
+    metadata: [
+      {
+        name: "description",
+        content:
+          "Invariant Docs: Comprehensive guide for using Invariant DEX - the most efficient tool for creating concentrated liquidity.",
+      },
+      {
+        name: "keywords",
+        content:
+          "AMM DEX, concentrated liquidity, DeFi exchange, crypto trading, capital efficiency, risk management, decentralized finance, DeFi, liquidity pools, yield farming, blockchain",
+      },
+      { name: "author", content: "Invariant" },
+      { name: "robots", content: "index, follow" },
+      {
+        httpEquiv: "Cache-Control",
+        content: "no-cache, no-store, must-revalidate",
+      },
+      { httpEquiv: "X-UA-Compatible", content: "IE=edge" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://docs.invariant.app/" },
+      {
+        property: "og:title",
+        content: "Invariant Docs - Your Guide to Invariant DEX",
+      },
+      {
+        property: "og:description",
+        content:
+          "Learn how to use Invariant's AMM DEX on Solana with our comprehensive documentation. Dive into advanced DeFi tools and maximize efficiency.",
+      },
+      {
+        property: "og:image",
+        content: "https://docs.invariant.app/img/social-share-image.png",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:url", content: "https://docs.invariant.app/" },
+      {
+        name: "twitter:title",
+        content:
+          "Invariant Docs - Comprehensive Guide for Invariant DEX",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Explore Invariant's features and learn how to leverage its concentrated liquidity for optimal DeFi strategies.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://docs.invariant.app/img/social-share-image.png",
+      },
+      { name: "twitter:creator", content: "@invariant_labs" },
+    ],
+    headTags: [
+      {
+        tagName: "script",
+        attributes: { type: "application/ld+json" },
+        innerHTML: `
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Invariant Docs",
+          "url": "https://docs.invariant.app/",
+          "description": "Comprehensive documentation for Invariant DEX.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Invariant",
+            "logo": "https://docs.invariant.app/img/logo.png"
+          }
+        }
+        `,
+      },
+      {
+        tagName: "link",
+        attributes: { rel: "canonical", href: "https://docs.invariant.app/" },
+      },
+    ],
     navbar: {
       title: "Invariant",
       logo: {
@@ -99,7 +170,12 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Invariant | Built with Docusaurus.`,
     },
+    prism: {
+      theme: require("prism-react-renderer/themes/vsDark"),
+      additionalLanguages: ["rust"],
+    },
   },
+
   presets: [
     [
       "@docusaurus/preset-classic",
