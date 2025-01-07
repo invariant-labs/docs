@@ -42,11 +42,11 @@ module.exports = {
       {
         property: "og:description",
         content:
-          "Learn how to use Invariant's AMM DEX on Solana with our comprehensive documentation. Dive into advanced DeFi tools and maximize efficiency.",
+          "Learn how to use Invariant's AMM DEX with our comprehensive documentation. Dive into advanced DeFi tools and maximize efficiency.",
       },
       {
         property: "og:image",
-        content: "https://docs.invariant.app/img/social-share-image.png",
+        content: "https://docs.invariant.app/img/logo.png",
       },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://docs.invariant.app/" },
@@ -62,7 +62,7 @@ module.exports = {
       },
       {
         name: "twitter:image",
-        content: "https://docs.invariant.app/img/social-share-image.png",
+        content: "https://docs.invariant.app/img/logo.png",
       },
       { name: "twitter:creator", content: "@invariant_labs" },
     ],
