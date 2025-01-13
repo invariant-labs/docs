@@ -4,8 +4,6 @@ title: Take advantage of concentration
 slug: /invariant_points/concentration
 ---
 
-## Maximizing Points with Position Concentration
-
 Learn how to leverage concentrated liquidity, the core principle of the **CLMM** (Concentrated Liquidity Market Maker) model, to earn more points in the **Invariant Points** system.
 
 ### What Is the Concentration Slider?
