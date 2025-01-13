@@ -10,11 +10,11 @@ In this tutorial, we’ll show you how to quickly open and manage your position 
 
 Let’s start by adding a liquidity position on Invariant. If you’ve never done this before, check out our beginner tutorial here(link).
 
-### 1. Navigate to the Points Tab.
+### 1. Navigate to the Points Tab
 
 ![Points Tab](/img/docs/app/invariant_points/points_tab.jpg)
 
-### 2. All recommended pools are listed under Rewarded Pools. Add liquidity to one of these pools by clicking the “+” button.
+### 2. Add liquidity to one of Rewarded Pools by clicking the “+” button
 
 ![Recommended Pools](/img/docs/app/invariant_points/recommended_pools.jpg)
 
