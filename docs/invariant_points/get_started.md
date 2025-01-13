@@ -6,6 +6,8 @@ slug: /invariant_points/get_started
 
 ## How to Get Started with Invariant Points?
 
+In this tutorial, we’ll show you how to quickly open and manage your position on Invariant so you can start earning Invariant Points right away. Let’s get started!
+
 ## Adding position
 
 Let’s start by adding a liquidity position on Invariant. If you’ve never done this before, check out our beginner tutorial here(link).

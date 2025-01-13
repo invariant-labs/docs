@@ -1,10 +1,8 @@
 ---
-title: Mechanism
+title: Points distribution system
 
 slug: /invariant_points/mechanism
 ---
-
-## Points Distribution Algorithm
 
 Let’s explain in detail how the point allocation algorithm works.
 The primary goal of the algorithm is to reward "efficient liquidity". To understand what efficient liquidity means, we first need to grasp how CLMM DEXs like Invariant operate.
