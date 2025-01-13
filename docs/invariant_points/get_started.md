@@ -4,8 +4,6 @@ title: Get started
 slug: /invariant_points/get_started
 ---
 
-## How to Get Started with Invariant Points?
-
 In this tutorial, we’ll show you how to quickly open and manage your position on Invariant so you can start earning Invariant Points right away. Let’s get started!
 
 ## Adding position
