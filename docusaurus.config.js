@@ -52,8 +52,7 @@ module.exports = {
       { name: "twitter:url", content: "https://docs.invariant.app/" },
       {
         name: "twitter:title",
-        content:
-          "Invariant Docs - Comprehensive Guide for Invariant DEX",
+        content: "Invariant Docs - Comprehensive Guide for Invariant DEX",
       },
       {
         name: "twitter:description",
@@ -99,13 +98,13 @@ module.exports = {
       items: [
         { to: "/docs/solana/introduction", label: "Solana", position: "left" },
         { to: "/docs/eclipse/get_started", label: "Eclipse", position: "left" },
-        {
-          to: "/docs/aleph_zero/get_started",
-          label: "Aleph Zero",
-          position: "left",
-        },
+        // {
+        //   to: "/docs/aleph_zero/get_started",
+        //   label: "Aleph Zero",
+        //   position: "left",
+        // },
         // { to: '/docs/casper/installation', label: 'Casper Network', position: 'left' },
-        { to: "/docs/vara/get_started", label: "VARA", position: "left" },
+        // { to: "/docs/vara/get_started", label: "VARA", position: "left" },
         {
           to: "/docs/alephium/installation",
           label: "Alephium",
