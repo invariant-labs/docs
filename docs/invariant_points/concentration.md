@@ -1,5 +1,5 @@
 ---
-title: Take advantage of concentration
+title: Concentration advantage
 
 slug: /invariant_points/concentration
 ---
