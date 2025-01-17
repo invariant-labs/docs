@@ -94,3 +94,39 @@ Let’s walk through the rebalancing process step by step.
 - **Reopen Your Position**
 
   Once you’ve restored the appropriate ratio for your desired concentration level, simply reopen the position. The rebalancing process is now complete.
+
+## Making swaps
+
+You can also earn points by making swaps on rewarded pairs.
+
+### 1. Pick rewarded pair
+
+Currently, points are distributed for swaps executed on the following pairs (all fee tiers apply):
+
+- [ETH/USDC](https://eclipse.invariant.app/exchange/ETH/USDC)
+- [tETH/ETH](https://eclipse.invariant.app/exchange/tETH/ETH)
+- [SOL/ETH](https://eclipse.invariant.app/exchange/SOL/ETH)
+
+Rewarded trading pairs are highlighted with a special graphic design to ensure users can easily identify whether they are swapping on a pair that earns points.
+
+- **Pair with points**
+
+  ![Rewarded swap](/img/docs/app/invariant_points/rewarded_swap.png)
+
+- **Pair without points**
+
+  ![Rewarded swap](/img/docs/app/invariant_points/not_rewarded_swap.png)
+
+### 2. Make a swap
+
+### 3. Check your position in the leaderboard
+
+- Go to the [Points](https://eclipse.invariant.app/points) tab and scroll down to view the leaderboard.
+
+- Make sure you select the **Swap Leaderboard** from the list.
+
+  ![Rewarded swap](/img/docs/app/invariant_points/leaderboard_list.png)
+
+- Find yourself on the leaderboard and climb your way to the top!
+
+  ![Rewarded swap](/img/docs/app/invariant_points/swap_leaderboard.png)

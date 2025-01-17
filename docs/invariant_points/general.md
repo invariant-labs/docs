@@ -9,7 +9,7 @@ slug: /invariant_points/overview
 ### Invariant Points
 
 Invariant Points program is designed to reward our users and show appreciation to those who supported us during the early stages and actively engaged with our protocol.
-Users can earn points through various activities on Invariant, such as providing liquidity, completing quests, or contributing to the community.
+Users can earn points through various activities on Invariant, such as providing liquidity, making swaps or contributing to the community.
 
 These accumulated points can later be redeemed for exclusive benefits as part of our commitment to our community.
 Our goal is for the Invariant Points system to be more than just a loyalty program – it’s an invitation to help us build a strong, trust-driven, and engaged ecosystem.
