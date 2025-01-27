@@ -381,7 +381,7 @@ module.exports = {
         "invariant_points/mechanism",
         "invariant_points/get_started",
         "invariant_points/concentration",
-        // "invariant_points/content",
+        "invariant_points/content",
         "invariant_points/api",
       ],
     },
