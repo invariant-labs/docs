@@ -28,7 +28,9 @@ Follow these simple steps:
 
 1. **Tag & Submit**
 
-   Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **Content Submissions Form**.
+   Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog)**.
+
+   https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog
 
 ## Prize System
 
@@ -55,7 +57,7 @@ This is the **only method** of prize distribution. Please be cautious of scams.
 
 ## Retrospective Allocations
 
-We value the people who supported us in the very early stages. That’s why we will give retrospectively allocations for users who tweeted about us before January 27, 2025.
+We value the people who supported us in the very early stages. That’s why we will give retrospectively allocations for users who tweeted about us before January 27, 2025. There were four tiers of allocations, determined by the criteria outlined above.
 
 [List of the winners](https://docs.google.com/document/d/1S-FA4e7SmBgVMPJ61nWwAZhkIDYwdY3I15sy83hmBws/edit?usp=sharing)
 
