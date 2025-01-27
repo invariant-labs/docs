@@ -4,6 +4,8 @@ title: Content Program
 slug: /invariant_points/content
 ---
 
+![Content program](/img/docs/app/invariant_points/content_program.png)
+
 The **Invariant Content Program** is your chance to shape how others perceive and use the protocol while climbing the leaderboard.
 
 By creating content on social media platforms like **X**, **TikTok**, **YouTube**, or **Reddit**, you can earn significant points to secure a top spot on the leaderboard. Whether you're a pro at simplifying complex ideas, crafting viral content, making hilarious memes, or simply enjoy sharing your thoughts, this is your moment to shine and earn points along the way.
@@ -16,21 +18,21 @@ Follow these simple steps:
 
     Share engaging and insightful content about Invariant. Here’s what you can create:
 
-- Threads, articles, or videos explaining Invariant’s features
+    - Threads, articles, or videos explaining Invariant’s features
 
-  - Guides on optimizing yield with Invariant
+    - Guides on optimizing yield with Invariant
 
-  - Creative and funny memes about Invariant
+    - Creative and funny memes about Invariant
 
-  - TikTok or YouTube videos highlighting the benefits of using Invariant
+    - TikTok or YouTube videos highlighting the benefits of using Invariant
 
-  - Something only you can come up with. Out-of-the-box ideas that bring value to Invariant are also highly encouraged.
+    - Something only you can come up with. Out-of-the-box ideas that bring value to Invariant are also highly encouraged.
 
-1. **Tag & Submit**
+2.  **Tag & Submit**
 
-   Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog)**.
+    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog)**.
 
-   https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog
+    https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog
 
 ## Prize System
 
@@ -51,7 +53,7 @@ Winners will be announced every two weeks, starting from **February 14, 2025**.
 
 The first point distribution will happen immediately after the winners are announced. The list of winners will be published on X.
 
-Following that, we will contact the winners directly from our official **Invariant (@invariant_labs)** account on **X** to confirm their wallet addresses for prize distribution.
+Following that, we will contact the winners directly from our official **[Invariant (@invariant_labs)](https://x.com/invariant_labs)** account on **X** to confirm their wallet addresses for prize distribution.
 
 This is the **only method** of prize distribution. Please be cautious of scams.
 
