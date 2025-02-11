@@ -27,7 +27,7 @@ Let’s start by adding a liquidity position on Invariant. If you’ve never don
 
 After clicking “**+**”, you will be redirected to the liquidity addition window.
 
-![New position](/img/docs/app/invariant_points/new_position.png)
+![New position](/img/docs/app/invariant_points/add_liquidity.png)
 
 To earn points, pay special attention to two key factors:
 
@@ -42,6 +42,12 @@ To earn points, pay special attention to two key factors:
   This is the most critical aspect of providing liquidity. The right concentration level can significantly increase your points. If ranking high is important to you, familiarize yourself with the concentration mechanism described in detail here.
 
   ![Concentration Slider](/img/docs/app/invariant_points/concentration_slider.png)
+
+- **Estimated Points**
+
+  Enter the amount of tokens you want to add to the pool, select the concentration range, and see an estimate of the points you'll receive after opening the position. Adjust the concentration slider to view the maximum potential points.
+
+  ![Concentration Slider](/img/docs/app/invariant_points/estimated_points.png)
 
 ### 4. Check your position
 

@@ -38,6 +38,16 @@ Here is a comparison of point earnings for the same position (**$200 TVL**) at t
 
 ![Concentration](/img/docs/app/invariant_points/concentration.png)
 
+### See Your Points Before Opening a Position
+
+To make it easier for users to understand the power of concentration, we’ve introduced the **Estimated Points** feature. This tool allows you to see how many points your position can potentially earn before adding it to the pool.
+
+By experimenting with different input values and adjusting the concentration bar, you can explore how various configurations impact your rewards. Use this feature to determine the optimal position that aligns with your point target and strategy.
+
+[**Try it here**](https://eclipse.invariant.app/newPosition/ETH/USDC/0_09?conc=34&range=false)
+
+![Concentration](/img/docs/app/invariant_points/estimated_points.png)
+
 ### Risks of Highly Concentrated Positions
 
 While concentration offers many benefits, the associated risks are relatively small and manageable. It’s important to understand these risks to make informed decisions:
