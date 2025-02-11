@@ -177,64 +177,64 @@ module.exports = {
             },
           ],
         },
-        {
-          type: "category",
-          label: "Aleph Zero",
-          collapsed: true,
-          items: [
-            "aleph_zero/get_started",
-            {
-              type: "category",
-              label: "User Guide",
-              items: [
-                "aleph_zero/user_guide/interface",
-                "aleph_zero/user_guide/networks",
-                "aleph_zero/user_guide/how_to_connect_your_wallet",
-                "aleph_zero/user_guide/faucet",
-                "aleph_zero/user_guide/how_to_swap",
-                {
-                  type: "category",
-                  label: "How to add liquidity",
-                  link: {
-                    type: "doc",
-                    id: "aleph_zero/user_guide/how_to_add_liquidity",
-                  },
-                  items: [
-                    "aleph_zero/user_guide/how_to_add_liquidity/uniform_concentration",
-                    "aleph_zero/user_guide/how_to_add_liquidity/price_range",
-                  ],
-                },
-                "aleph_zero/user_guide/how_to_claim_fee",
-                "aleph_zero/user_guide/how_to_remove_liquidity",
-                // 'aleph_zero/user_guide/stats',
-                "aleph_zero/user_guide/how_to_list_your_token",
-                "aleph_zero/user_guide/troubleshooting",
-                "aleph_zero/user_guide/faq_tutorial",
-              ],
-            },
-            {
-              type: "category",
-              label: "For developers",
-              link: {
-                type: "doc",
-                id: "aleph_zero/installation",
-              },
-              items: [
-                "aleph_zero/installation",
-                "aleph_zero/overview",
-                "aleph_zero/sdk",
-                "aleph_zero/types",
-                "aleph_zero/storage",
-                "aleph_zero/collections",
-                "aleph_zero/entrypoints",
-                "aleph_zero/architecture_diagrams",
-                "aleph_zero/handling_azero",
-                "aleph_zero/invariant_errors",
-                "aleph_zero/deployment",
-              ],
-            },
-          ],
-        },
+        // {
+        //   type: "category",
+        //   label: "Aleph Zero",
+        //   collapsed: true,
+        //   items: [
+        //     "aleph_zero/get_started",
+        //     {
+        //       type: "category",
+        //       label: "User Guide",
+        //       items: [
+        //         "aleph_zero/user_guide/interface",
+        //         "aleph_zero/user_guide/networks",
+        //         "aleph_zero/user_guide/how_to_connect_your_wallet",
+        //         "aleph_zero/user_guide/faucet",
+        //         "aleph_zero/user_guide/how_to_swap",
+        //         {
+        //           type: "category",
+        //           label: "How to add liquidity",
+        //           link: {
+        //             type: "doc",
+        //             id: "aleph_zero/user_guide/how_to_add_liquidity",
+        //           },
+        //           items: [
+        //             "aleph_zero/user_guide/how_to_add_liquidity/uniform_concentration",
+        //             "aleph_zero/user_guide/how_to_add_liquidity/price_range",
+        //           ],
+        //         },
+        //         "aleph_zero/user_guide/how_to_claim_fee",
+        //         "aleph_zero/user_guide/how_to_remove_liquidity",
+        //         // 'aleph_zero/user_guide/stats',
+        //         "aleph_zero/user_guide/how_to_list_your_token",
+        //         "aleph_zero/user_guide/troubleshooting",
+        //         "aleph_zero/user_guide/faq_tutorial",
+        //       ],
+        //     },
+        //     {
+        //       type: "category",
+        //       label: "For developers",
+        //       link: {
+        //         type: "doc",
+        //         id: "aleph_zero/installation",
+        //       },
+        //       items: [
+        //         "aleph_zero/installation",
+        //         "aleph_zero/overview",
+        //         "aleph_zero/sdk",
+        //         "aleph_zero/types",
+        //         "aleph_zero/storage",
+        //         "aleph_zero/collections",
+        //         "aleph_zero/entrypoints",
+        //         "aleph_zero/architecture_diagrams",
+        //         "aleph_zero/handling_azero",
+        //         "aleph_zero/invariant_errors",
+        //         "aleph_zero/deployment",
+        //       ],
+        //     },
+        //   ],
+        // },
         // {
         //   type: 'category',
         //   label: 'Casper Network',
@@ -252,66 +252,66 @@ module.exports = {
         //     'casper/deployment'
         //   ]
         // },
-        {
-          type: "category",
-          label: "VARA",
-          collapsed: true,
-          items: [
-            "vara/get_started",
+        // {
+        //   type: "category",
+        //   label: "VARA",
+        //   collapsed: true,
+        //   items: [
+        //     "vara/get_started",
 
-            {
-              type: "category",
-              label: "User Guide",
-              link: {
-                type: "doc",
-                id: "vara/installation",
-              },
-              items: [
-                "vara/user_guide/interface",
-                "vara/user_guide/networks",
-                "vara/user_guide/how_to_connect_your_wallet",
-                "vara/user_guide/faucet",
-                "vara/user_guide/how_to_swap",
-                {
-                  type: "category",
-                  label: "How to add liquidity",
-                  link: {
-                    type: "doc",
-                    id: "vara/user_guide/how_to_add_liquidity",
-                  },
-                  items: [
-                    "vara/user_guide/how_to_add_liquidity/uniform_concentration",
-                    "vara/user_guide/how_to_add_liquidity/price_range",
-                  ],
-                },
-                "vara/user_guide/how_to_claim_fee",
-                "vara/user_guide/how_to_remove_liquidity",
-                // 'aleph_zero/user_guide/stats',
-                "vara/user_guide/troubleshooting",
-                "vara/user_guide/faq_tutorial",
-              ],
-            },
+        //     {
+        //       type: "category",
+        //       label: "User Guide",
+        //       link: {
+        //         type: "doc",
+        //         id: "vara/installation",
+        //       },
+        //       items: [
+        //         "vara/user_guide/interface",
+        //         "vara/user_guide/networks",
+        //         "vara/user_guide/how_to_connect_your_wallet",
+        //         "vara/user_guide/faucet",
+        //         "vara/user_guide/how_to_swap",
+        //         {
+        //           type: "category",
+        //           label: "How to add liquidity",
+        //           link: {
+        //             type: "doc",
+        //             id: "vara/user_guide/how_to_add_liquidity",
+        //           },
+        //           items: [
+        //             "vara/user_guide/how_to_add_liquidity/uniform_concentration",
+        //             "vara/user_guide/how_to_add_liquidity/price_range",
+        //           ],
+        //         },
+        //         "vara/user_guide/how_to_claim_fee",
+        //         "vara/user_guide/how_to_remove_liquidity",
+        //         // 'aleph_zero/user_guide/stats',
+        //         "vara/user_guide/troubleshooting",
+        //         "vara/user_guide/faq_tutorial",
+        //       ],
+        //     },
 
-            {
-              type: "category",
-              label: "For developers",
-              link: {
-                type: "doc",
-                id: "vara/installation",
-              },
-              items: [
-                "vara/installation",
-                "vara/overview",
-                "vara/sdk",
-                "vara/types",
-                "vara/storage",
-                "vara/collections",
-                "vara/entrypoints",
-                "vara/invariant_errors",
-              ],
-            },
-          ],
-        },
+        //     {
+        //       type: "category",
+        //       label: "For developers",
+        //       link: {
+        //         type: "doc",
+        //         id: "vara/installation",
+        //       },
+        //       items: [
+        //         "vara/installation",
+        //         "vara/overview",
+        //         "vara/sdk",
+        //         "vara/types",
+        //         "vara/storage",
+        //         "vara/collections",
+        //         "vara/entrypoints",
+        //         "vara/invariant_errors",
+        //       ],
+        //     },
+        //   ],
+        // },
         {
           type: "category",
           label: "Alephium",
