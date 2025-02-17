@@ -35,25 +35,21 @@ Our approach encourages smart, engaged participants rather than passive users se
 Every reward is calculated using the following formula:
 
 $$
-\text{Reward} = \frac{\text{SecondsInside} \cdot \text{Liquidity} \cdot \text{Points}}{\text{SecondsTotal}}
+\text{Points} = \frac{\text{PositionValue} \cdot \text{Concentration} \cdot \text{SecondsInside}}{\text{SecondsTotal}}
 $$
 
 Where:
 
-- **SecondsInside** - Proportional to the duration (in seconds) that the position was active within the specified range.
+- **PositionValue** - The value of tokens added to the position (higher value = more points).
 
-- **Liquidity** - The position's share of the liquidity pool, which also factors in the concentration of the liquidity.
+- **Concentration** - The [concentration](https://docs.invariant.app/docs/invariant_points/concentration) level of your position (higher = more points).
+
+- **SecondsInside** - Proportional to the duration (in seconds) that the position was active within the specified range.
 
 - **SecondsTotal** - The total duration (in seconds) since the position was created, calculated as:
 
 $$
        \text{SecondsTotal} = \text{CurrentTimestamp} - \text{CreatePositionTimestamp}
-$$
-
-- **Points** - number of points to distribute, calculated using formula:
-
-$$
-        \text{Points} = \text{SecondsTotal} \cdot \text{PointsToDistribute}
 $$
 
 ### Example 1
@@ -72,7 +68,7 @@ $$
 $$
 
 $$
-       \text{Reward}_1 = \text{Reward}_2 = 0.5 \cdot 10000 \cdot 1 = 5000
+       \text{Points}_1 = \text{Points}_2 = 0.5 \cdot 10000 \cdot 1 = 5000
 $$
 
 **Result:**
