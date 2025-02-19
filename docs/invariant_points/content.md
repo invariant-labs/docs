@@ -30,9 +30,9 @@ Follow these simple steps:
 
 2.  **Tag & Submit**
 
-    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog)**.
+    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/LfPA83m6X3R1hSP66)**.
 
-    https://docs.google.com/forms/d/e/1FAIpQLScCYDKnNwU6hHmmHbUEeOxZbn1saWGlZ3Cfo7MpLEdRCV-5cw/viewform?usp=dialog
+    https://forms.gle/LfPA83m6X3R1hSP66
 
 ## Prize System
 
@@ -49,20 +49,18 @@ There’s no limit. If you create something extraordinary, your prize will be ju
 
 ## Prize Distribution
 
-Winners will be announced every two weeks, starting from **February 14, 2025**.
+The Content Program will follow a **round-based** system. Each round lasts two weeks, after which winners receive their allocations, and the next round begins.
 
-The first point distribution will happen immediately after the winners are announced. The list of winners will be published on X.
+The first round starts **February 1, 2025, to February 14, 2025**.
 
-Following that, we will contact the winners directly from our official **[Invariant (@invariant_labs)](https://x.com/invariant_labs)** account on **X** to confirm their wallet addresses for prize distribution.
+Users can track the amount of **Content Points** and the status of current and old allocations in the [Invariant Points interface](https://eclipse.invariant.app/points).
 
-This is the **only method** of prize distribution. Please be cautious of scams.
+![Content points](/img/docs/app/invariant_points/content_points.png)
 
-## Retrospective Allocations
+## Forgot to submit?
 
-We value the people who supported us in the very early stages. That’s why we will give retrospectively allocations for users who tweeted about us before January 27, 2025. There were four tiers of allocations, determined by the criteria outlined above.
+Have you created content about Invariant but forgotten to submit the form, and the round has already ended? No problem.
 
-[List of the winners](https://docs.google.com/document/d/1S-FA4e7SmBgVMPJ61nWwAZhkIDYwdY3I15sy83hmBws/edit?usp=sharing)
+Fill out this form, and we’ll review your submission and allocate your points!
 
-Did you tweet about Invariant before January 27, 2025, and believe you should be on this list but aren't? No worries.
-
-[Fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSesuliC0MYerkjNq1oMMy2vaAuILiYaa9jIElIGyUUJA6Majw/viewform?usp=dialog)
+https://forms.gle/dH9xL3nAZkUuejMNA
