@@ -93,7 +93,7 @@ module.exports = {
       title: "Invariant",
       logo: {
         alt: "Invariant Logo",
-        src: "img/logo.png",
+        src: "img/logoShort.png",
       },
       items: [
         { to: "/docs/solana/introduction", label: "Solana", position: "left" },
