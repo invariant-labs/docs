@@ -57,7 +57,7 @@ Simulation Types:
 
 - **Same-Pool Simulation**: Used when the liquidity position and swap occur in the same pool. This simulation directly utilizes the current pool price.
 
-- **Different-pool Simulation**: Employed when your position is created in a different pool. It allows for independent slippage settings and additional configuration parameters for precise simulations for each pool used.
+- **Different-pool Simulation**: Employed when your position is created in a different pool than swap pool.
 
 #### Iterative Optimization:
 
