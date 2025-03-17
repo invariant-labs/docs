@@ -26,6 +26,7 @@ module.exports = {
         "invariant_features/position_full_customization",
         "invariant_features/nft_less_positions",
         "invariant_features/full_range_tokenizer",
+        "invariant_features/autoswap",
         "invariant_features/dynamic_fees",
         "invariant_features/auto_rebalancing",
         {
