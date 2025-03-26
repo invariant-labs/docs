@@ -313,63 +313,63 @@ module.exports = {
         //     },
         //   ],
         // },
-        {
-          type: "category",
-          label: "Alephium",
-          collapsed: true,
-          items: [
-            "alephium/get_started",
-            {
-              type: "category",
-              label: "User Guide",
-              items: [
-                "alephium/user_guide/interface",
-                "alephium/user_guide/networks",
-                "alephium/user_guide/how_to_connect_your_wallet",
-                "alephium/user_guide/faucet",
-                "alephium/user_guide/how_to_swap",
-                {
-                  type: "category",
-                  label: "How to add liquidity",
-                  link: {
-                    type: "doc",
-                    id: "alephium/user_guide/how_to_add_liquidity",
-                  },
-                  items: [
-                    "alephium/user_guide/how_to_add_liquidity/uniform_concentration",
-                    "alephium/user_guide/how_to_add_liquidity/price_range",
-                  ],
-                },
-                "alephium/user_guide/how_to_claim_fee",
-                "alephium/user_guide/how_to_remove_liquidity",
-                "alephium/user_guide/stats",
-                "alephium/user_guide/how_to_list_your_token",
-                "alephium/user_guide/troubleshooting",
-                "alephium/user_guide/faq_tutorial",
-              ],
-            },
-            {
-              type: "category",
-              label: "For developers",
-              link: {
-                type: "doc",
-                id: "alephium/installation",
-              },
-              items: [
-                "alephium/installation",
-                "alephium/overview",
-                "alephium/sdk",
-                "alephium/types",
-                "alephium/storage",
-                "alephium/collections",
-                "alephium/entrypoints",
-                "alephium/handling_alph",
-                "alephium/invariant_errors",
-                // 'alephium/deployment'
-              ],
-            },
-          ],
-        },
+        // {
+        //   type: "category",
+        //   label: "Alephium",
+        //   collapsed: true,
+        //   items: [
+        //     "alephium/get_started",
+        //     {
+        //       type: "category",
+        //       label: "User Guide",
+        //       items: [
+        //         "alephium/user_guide/interface",
+        //         "alephium/user_guide/networks",
+        //         "alephium/user_guide/how_to_connect_your_wallet",
+        //         "alephium/user_guide/faucet",
+        //         "alephium/user_guide/how_to_swap",
+        //         {
+        //           type: "category",
+        //           label: "How to add liquidity",
+        //           link: {
+        //             type: "doc",
+        //             id: "alephium/user_guide/how_to_add_liquidity",
+        //           },
+        //           items: [
+        //             "alephium/user_guide/how_to_add_liquidity/uniform_concentration",
+        //             "alephium/user_guide/how_to_add_liquidity/price_range",
+        //           ],
+        //         },
+        //         "alephium/user_guide/how_to_claim_fee",
+        //         "alephium/user_guide/how_to_remove_liquidity",
+        //         "alephium/user_guide/stats",
+        //         "alephium/user_guide/how_to_list_your_token",
+        //         "alephium/user_guide/troubleshooting",
+        //         "alephium/user_guide/faq_tutorial",
+        //       ],
+        //     },
+        //     {
+        //       type: "category",
+        //       label: "For developers",
+        //       link: {
+        //         type: "doc",
+        //         id: "alephium/installation",
+        //       },
+        //       items: [
+        //         "alephium/installation",
+        //         "alephium/overview",
+        //         "alephium/sdk",
+        //         "alephium/types",
+        //         "alephium/storage",
+        //         "alephium/collections",
+        //         "alephium/entrypoints",
+        //         "alephium/handling_alph",
+        //         "alephium/invariant_errors",
+        //         // 'alephium/deployment'
+        //       ],
+        //     },
+        //   ],
+        // },
       ],
     },
 
