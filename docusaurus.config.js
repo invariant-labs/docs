@@ -105,11 +105,11 @@ module.exports = {
         // },
         // { to: '/docs/casper/installation', label: 'Casper Network', position: 'left' },
         // { to: "/docs/vara/get_started", label: "VARA", position: "left" },
-        {
-          to: "/docs/alephium/installation",
-          label: "Alephium",
-          position: "left",
-        },
+        // {
+        //   to: "/docs/alephium/installation",
+        //   label: "Alephium",
+        //   position: "left",
+        // },
         {
           html: '<i class="fa-solid fa-x icon-x"></i>',
           href: "https://x.com/invariant_labs",
@@ -211,10 +211,10 @@ module.exports = {
             from: "/docs/aleph_zero/",
             to: "/docs/aleph_zero/installation",
           },
-          {
-            from: "/docs/alephium/",
-            to: "/docs/alephium/installation",
-          },
+          // {
+          //   from: "/docs/alephium/",
+          //   to: "/docs/alephium/installation",
+          // },
           {
             from: "/docs/solana/",
             to: "/docs/solana/introduction",
@@ -236,9 +236,9 @@ module.exports = {
           if (existingPath === "/docs/aleph_zero/") {
             return "/docs/aleph_zero/installation";
           }
-          if (existingPath === "/docs/alephium/") {
-            return "/docs/alephium/installation";
-          }
+          // if (existingPath === "/docs/alephium/") {
+          //   return "/docs/alephium/installation";
+          // }
           if (existingPath === "/docs/solana/") {
             return "/docs/solana/introduction";
           }
