@@ -66,9 +66,9 @@ This setting determines how much of your capital must be deposited into the pool
 
 | Utilization | Description |
 |-------------|-------------|
-| **90% (Volatile Market)** | Safe for dynamic conditions. |
-| **95% (Default)** | Balanced for most scenarios. |
-| **99% (Maximize Capital)** | Near full usage, but may revert in fast-moving markets. |
+| 90% (Volatile Market) | Safe for dynamic conditions. |
+| 95% (Default) | Balanced for most scenarios. |
+| 99% (Maximize Capital) | Near full usage, but may revert in fast-moving markets. |
 
 #### 2. Maximum Price Impact
 
@@ -78,15 +78,15 @@ Controls how much your swap can shift the market price. Useful to avoid unexpect
 
 | Price Impact | Description |
 |--------------|-------------|
-| **0.1% (Low Impact)** | For stable assets or large swaps. |
-| **0.3% (Default)** | Balanced for general use. |
-| **0.5% (High Tolerance)** | Allows greater movement in exchange for speed. |
+| 0.1% (Low Impact) | For stable assets or large swaps. |
+| 0.3% (Default) | Balanced for general use. |
+| 0.5% (High Tolerance) | Allows greater movement in exchange for speed. |
 
 ### Advanced Settings
 
 ![Advanced Settings](/img/docs/app/general/autoswap_advanced_settings.png)
 
-#### 3. 🔄 Swap Slippage Tolerance
+#### 3. Swap Slippage Tolerance
 
 Sets the acceptable deviation between the quoted and executed swap price. Useful for minimizing risk in volatile conditions.
 
@@ -94,9 +94,9 @@ Sets the acceptable deviation between the quoted and executed swap price. Useful
 
 | Slippage | Description |
 |----------|-------------|
-| **0.3% (Low Slippage)** | Precise execution, more likely to revert. |
-| **0.5% (Default)** | Safe and flexible. |
-| **1% (High Tolerance)** | Best for high-speed, low-sensitivity use cases. |
+| 0.3% (Low Slippage) | Precise execution, more likely to revert. |
+| 0.5% (Default) | Safe and flexible. |
+| 1% (High Tolerance) | Best for high-speed, low-sensitivity use cases. |
 
 <!-- --- -->
 
@@ -108,9 +108,9 @@ After the swap, AutoSwap opens the LP position. This setting defines how much pr
 
 | Slippage | Description |
 |----------|-------------|
-| **1% (Low Slippage)** | Ideal for tight ranges and stable markets. |
-| **2.5% (Default)** | Works for most token pairs. |
-| **5% (High Tolerance)** | Suitable for volatile conditions and wide ranges. |
+| 1% (Low Slippage) | Ideal for tight ranges and stable markets. |
+| 2.5% (Default) | Works for most token pairs. |
+| 5% (High Tolerance) | Suitable for volatile conditions and wide ranges. |
 
 ---
 
