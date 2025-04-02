@@ -23,13 +23,17 @@ The ultimate goal is to get our protocol into the hands of users who will find v
 In addition to earning significant fees from providing liquidity, users also gain exposure to the potential for multiple airdrops.
 If you’ve ever considered starting your journey with liquidity providing in DeFi, there’s a good chance you won’t find a better time than now.
 
+### Benefits from other projects
+
+Invariant Points participants gain benefits from other projects within and beyond the Eclipse ecosystem, depending on their rank. The higher the position, the more rewards you can unlock. Check the Ecosystem Exposure tab for more details.
+
 ### Competition model
 
 The premise of Invariant Points was to create a competitive model among users. Every second, a fixed number of points is distributed and shared among players.
 
 Players whose performance, determined by factors such as TVL, position concentration, and the duration of the position being open, ranks highest will receive the largest share of points. This system incentivizes strategic positioning and rewards efficiency in managing liquidity.
 
-### Outsmarting the Whales with Less Capital
+### Outsmarting the whales with less capital
 
 Invariant Points algorithm is the first of its kind in DeFi, designed so that users with smaller amounts of capital aren't automatically set up to fail. How is that possible?
 

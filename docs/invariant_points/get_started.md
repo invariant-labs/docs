@@ -8,7 +8,7 @@ In this tutorial, we’ll show you how to quickly open and manage your position 
 
 ## Adding position
 
-Let’s start by adding a liquidity position on Invariant. If you’ve never done this before, check out our beginner tutorial here(link).
+Let’s start by adding a liquidity position on Invariant.
 
 ### 1. Navigate to the Points Tab
 
