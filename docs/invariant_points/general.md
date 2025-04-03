@@ -4,6 +4,7 @@ title: Overview
 slug: /invariant_points/overview
 ---
 
+
 ![Example1](/img/docs/app/invariant_points/pointsystem.png)
 
 ### Invariant Points

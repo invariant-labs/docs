@@ -4,6 +4,8 @@ title: Points distribution system
 slug: /invariant_points/mechanism
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
 Let’s explain in detail how the point allocation algorithm works.
 The primary goal of the algorithm is to reward "efficient liquidity". To understand what efficient liquidity means, we first need to grasp how CLMM DEXs like Invariant operate.
 
@@ -13,7 +15,13 @@ Without diving into overly complex details, the key difference in providing liqu
 
 In an AMM model, liquidity is provided across the entire price range, while in a CLMM model, liquidity can be concentrated more efficiently near the current price range (see image).
 
-![Example1](/img/docs/app/invariant_points/invariant_points_clmmamm.png)
+<ThemedImage
+  alt="Example1"
+  sources={{
+    light: '/img/docs/app/invariant_points/invariant_points_clmmamm.png',
+    dark: '/img/docs/app/invariant_points/invariant_points_clmmamm_night.png',
+  }}
+/>
 
 This approach allows capital to be utilized far more effectively, enabling users to earn significantly higher fees from liquidity provision.
 Having that in mind, let’s familiarize ourselves with the definition of the current price range. It is simply the price range within which a given token has fluctuated during a specific time interval (e.g., 1 hour, 4 hours, 24 hours, 7 days).
@@ -89,14 +97,28 @@ You create two positions in a USDC/USDT pool with a price of 1 USDC per USDT.
 - **Position 1** receives only ⅙ (1000 points) of the distributed points due to its wider range.
 - **Position 2** receives ⅚ (5000 points) of the distributed points due to its narrower range (higher concentration).
 
-![Example1](/img/docs/app/invariant_points/invariant_points_example1.png)
+<ThemedImage
+  alt="Example1"
+  sources={{
+    light: '/img/docs/app/invariant_points/invariant_points_example1.png',
+    dark: '/img/docs/app/invariant_points/invariant_points_example1_night.png',
+  }}
+/>
+
+
 
 If the price moves to **1.0004:**
 
 - **Position 1** becomes the sole active position and collects all distributed points(6000 points) during this time.
 - **Position 2** is no longer active (falls out of range, not collecting fee and accruing points).
 
-![Example2](/img/docs/app/invariant_points/invariant_points_example2.png)
+<ThemedImage
+  alt="Example2"
+  sources={{
+    light: '/img/docs/app/invariant_points/invariant_points_example2.png',
+    dark: '/img/docs/app/invariant_points/invariant_points_example2_night.png',
+  }}
+/>
 
 ### Conclusions
 
