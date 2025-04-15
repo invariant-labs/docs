@@ -30,9 +30,9 @@ Follow these simple steps:
 
 2.  **Tag & Submit**
 
-    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/AxvLmYcJpRsu2VM47)**.
+    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/dab6YTBW1N66vQF18)**.
 
-    https://forms.gle/AxvLmYcJpRsu2VM47
+    https://forms.gle/dab6YTBW1N66vQF18
 
 ## Prize System
 
@@ -57,10 +57,4 @@ Users can track the amount of **Content Points** and the status of current and o
 
 ![Content points](/img/docs/app/invariant_points/content_points.png)
 
-## Forgot to submit?
 
-Have you created content about Invariant but forgotten to submit the form, and the round has already ended? No problem.
-
-ill out this form, and we’ll review your submission and allocate your points!
-
-https://forms.gle/dH9xL3nAZkUuejMNA
