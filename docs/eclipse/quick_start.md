@@ -22,13 +22,13 @@ npm i @invariant-labs/sdk-eclipse
 import { Market, Pair } from '@invariant-labs/sdk-eclipse'
 ```
 
-### Program IDs
+## Program Info
 
-| Endpoint |                  Program ID                  |
-| -------- | :------------------------------------------: |
-<!-- | Devnet   | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  | -->
-| Testnet  | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
-| Mainnet  | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU  |
+| Name               | Mainnet Address                             | Testnet Address                             | Idl                                  |
+| ------------------ | ------------------------------------------- | ------------------------------------------- | ------------------------------------ |
+| Invariant          | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU | iNvTyprs4TX8m6UeUEkeqDFjAL9zRCRWcexK9Sd4WEU | [IDL](/idls/invariant.json)          |
+| Invariant AutoSwap | AuTonVN41Ne17RGR2o9qTj3TmtKcTwmUUy1ebbTmpiU | AuTonVN41Ne17RGR2o9qTj3TmtKcTwmUUy1ebbTmpiU | [IDL](/idls/invariant_autoswap.json) |
+| Invariant Locker   | LockDkUjGpMHewP4cbP7XRpiiC4ciQaPALbwUALCEJp | LockDkUjGpMHewP4cbP7XRpiiC4ciQaPALbwUALCEJp | [IDL](/idls/locker.json)             |
 
 Data structures are an exact mapping, with the only changes being type and case. Methods called by a user have a corresponding method, that creates instructions, adds them to transaction, signs, and sends it. All methods (including ones used only by admin) have corresponding methods that return just the instruction.
 
