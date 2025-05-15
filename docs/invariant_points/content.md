@@ -30,9 +30,9 @@ Follow these simple steps:
 
 2.  **Tag & Submit**
 
-    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/FAYGQZC4g4FWq7fR9)**.
+    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/msXokhd5P3wjCwm28)**.
 
-    https://forms.gle/FAYGQZC4g4FWq7fR9
+    https://forms.gle/msXokhd5P3wjCwm28
 
 ## Prize System
 
@@ -56,5 +56,3 @@ The first round starts **February 1, 2025, to February 14, 2025**.
 Users can track the amount of **Content Points** and the status of current and old allocations in the [Invariant Points interface](https://eclipse.invariant.app/points).
 
 ![Content points](/img/docs/app/invariant_points/content_points.png)
-
-
