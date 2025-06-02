@@ -30,9 +30,9 @@ Follow these simple steps:
 
 2.  **Tag & Submit**
 
-    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/msXokhd5P3wjCwm28)**.
+    Be sure to tag **@invariant_labs** on **X** when sharing your content. Once it’s ready, submit your work through the official **[Content Submissions Form](https://forms.gle/APd3sw3ayRr8LUnR8)**.
 
-    https://forms.gle/msXokhd5P3wjCwm28
+    https://forms.gle/APd3sw3ayRr8LUnR8
 
 ## Prize System
 
