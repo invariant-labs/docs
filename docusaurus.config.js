@@ -183,7 +183,7 @@ module.exports = {
           remarkPlugins: [math],
           rehypePlugins: [katex],
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://invariant.app/",
+          editUrl: undefined,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
