@@ -113,6 +113,7 @@ Currently, points are distributed for swaps executed on the following pairs (all
 - [tETH/ETH](https://eclipse.invariant.app/exchange/tETH/ETH)
 - [SOL/ETH](https://eclipse.invariant.app/exchange/SOL/ETH)
 - [SOL/USDC](https://eclipse.invariant.app/exchange/SOL/USDC)
+- [tUSD/USDC](https://eclipse.invariant.app/exchange/TUSD/USDC)
 
 Rewarded trading pairs are highlighted with a special graphic design to ensure users can easily identify whether they are swapping on a pair that earns points.
 
