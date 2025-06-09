@@ -161,7 +161,7 @@ module.exports = {
               label: "For developers",
               link: {
                 type: "doc",
-                id: "eclipse/get_started",
+                id: "eclipse/introduction",
               },
               items: [
                 "eclipse/introduction",
