@@ -388,6 +388,7 @@ module.exports = {
       ],
     },
 
+    "sbitz",
     "faq",
     "resources",
   ],
