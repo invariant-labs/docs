@@ -8,6 +8,7 @@ slug: /sbitz
 
 sBITZ is the first liquid staking token on Eclipse, introducing a new way to stake while staying liquid. Liquid staking is an increasingly popular approach that improves on native staking by removing its biggest limitation: illiquidity. We’ll break down how liquid staking works in practice, what role sBITZ plays in the Eclipse ecosystem, and how it enables users to earn staking rewards while retaining full control over their capital.
 
+
 ### What is Liquid Staking and how does it work for BITZ?
 
 To understand liquid staking, let’s first look at how native staking works.
@@ -80,8 +81,26 @@ One of the main motivations behind creating sBITZ was to bring new value, greate
   High annual percentage yields always attract attention, especially in new ecosystems.
   sBITZ creates strong incentives for new and existing users to participate without giving up access to their capital.
 
+### sBITZ workflow in 4 steps
+
+1. The user stakes BITZ tokens via the sBITZ Minter and receives an equivalent amount of sBITZ tokens in return.
+2. The sBITZ Minter stakes the user's BITZ directly into the PowPow Staker.
+3. The user's staking rewards are automatically compounded every 10 seconds, significantly boosting their APY.
+4. At the same time, the user earns additional yield by using their sBITZ in DeFi protocols, for instance, by providing liquidity to the [sBITZ–ETH pool.](https://eclipse.invariant.app/newPosition/sBITZ/ETH/1_00)
+
+![how_sbit_works](/img/docs/app/how_sbitz_works.png)
+
+
+
 ### Summary
 
 sBITZ is not just a staking token. It is a capital-efficient, yield-optimized asset that benefits users, protocols, and the Eclipse chain as a whole.
 You no longer need to choose between staking and using your capital in DeFi.
 With sBITZ, you can do both automatically, efficiently, and continuously.
+
+### Technical Details
+
+**Price API**
+```
+https://api.invariant.app/price/eclipse-mainnet?address=sBTZcSwRZhRq3JcjFh1xwxgCxmsN7MreyU3Zx8dA8uF
+```
