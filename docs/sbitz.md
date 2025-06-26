@@ -6,6 +6,8 @@ slug: /sbitz
 
 ![sbitz](/img/docs/app/sbitz.png)
 
+sBITZ is the first liquid staking token on Eclipse, introducing a new way to stake while staying liquid. Liquid staking is an increasingly popular approach that improves on native staking by removing its biggest limitation: illiquidity. We’ll break down how liquid staking works in practice, what role sBITZ plays in the Eclipse ecosystem, and how it enables users to earn staking rewards while retaining full control over their capital.
+
 ### What is Liquid Staking and how does it work for BITZ?
 
 To understand liquid staking, let’s first look at how native staking works.
