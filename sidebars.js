@@ -379,6 +379,7 @@ module.exports = {
       // collapsed: true,
       items: [
         "invariant_points/general",
+        "invariant_points/espools",
         "invariant_points/mechanism",
         "invariant_points/get_started",
         "invariant_points/concentration",
