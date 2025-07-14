@@ -8,22 +8,23 @@ slug: /invariant_points/espools
 
 Adding **single-sided liquidity** is a powerful DeFi technique that many users overlook or don’t fully understand. Unlike the standard **50:50** setup (where you must deposit equal value of both tokens), **single-sided liquidity** lets you concentrate your liquidity entirely on one side of the pair, giving you more control over how your assets are used.
 
-Think of it like setting a **limit order** on a traditional exchange: you’re choosing a price range where you’re willing to trade one asset for another. Outside of that range, you simply hold your chosen asset. It’s a bit like saying, “Will sell my **USDC** for **ES** only if **ES** drops to my target price range.” This approach can be more capital-efficient and strategic, but it requires careful planning.
+Think of it like setting a **limit order** on a traditional exchange: you’re choosing a price range where you’re willing to trade one asset for another. Outside of that range, you simply hold your chosen asset. It’s a bit like saying, "Will sell my **USDC** for **ES** only if **ES** drops to my target price range." This approach can be more capital-efficient and strategic, but it requires careful planning.
 
 ### Quick tutorial step by step
 
-1. Make sure you’re in **“Range”** mode and have AutoSwap set to **“Basic”**, just like in the screenshot below.
+1. Make sure you’re in **"Range"** mode and have AutoSwap set to **"Basic"**, just like in the screenshot below.
 
 ![Content program](/img/docs/app/invariant_points/es1.jpg)
 
-1. Take a look at the **Current Price** value, which is shown on the chart as a vertical yellow line. We’ll be setting up single-sided liquidity relative to this value. The **Current Price** for the **ES** token is currently set at 0.6 USDC.
-   ![Content program](/img/docs/app/invariant_points/es4.jpg)
+2. Take a look at the **Current Price** value, which is shown on the chart as a vertical yellow line. We’ll be setting up single-sided liquidity relative to this value. The **Current Price** for the **ES** token is currently set at 0.6 USDC.
 
-1. The default range is distributed symmetrically around the **Current Price**. In this setup, you get a **50:50** ratio, which means you need to add equal value of both tokens. To provide single-sided liquidity, the **“MIN”** and **“MAX”** indicators must be positioned to the left of the line marking the **Current Price**.
+![Content program](/img/docs/app/invariant_points/es4.jpg)
+
+3. The default range is distributed symmetrically around the **Current Price**. In this setup, you get a **50:50** ratio, which means you need to add equal value of both tokens. To provide single-sided liquidity, the **"MIN"** and **"MAX"** indicators must be positioned to the left of the line marking the **Current Price**.
 
 ![Content program](/img/docs/app/invariant_points/es3.jpg)
 
-4. As you can see in the screenshot below, I’ve set the price range around $0.49–$0.57. How will my position behave now and after the ES token launch? Let's break it down.
+4. As you can see in the screenshot below, I’ve set the price range around **$0.49–$0.57**. How will my position behave now and after the ES token launch? Let's break it down.
 
 ![Content program](/img/docs/app/invariant_points/es2.jpg)
 
