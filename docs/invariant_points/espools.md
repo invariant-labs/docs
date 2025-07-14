@@ -8,7 +8,7 @@ slug: /invariant_points/espools
 
 Adding **single-sided liquidity** is a powerful DeFi technique that many users overlook or don’t fully understand. Unlike the standard **50:50** setup (where you must deposit equal value of both tokens), **single-sided liquidity** lets you concentrate your liquidity entirely on one side of the pair, giving you more control over how your assets are used.
 
-Think of it like setting a **limit order** on a traditional exchange: you’re choosing a price range where you’re willing to trade one asset for another. Outside of that range, you simply hold your chosen asset. It’s a bit like saying, “I’ll sell my **USDC** for **ES** only if **ES** drops to my target price range.” This approach can be more capital-efficient and strategic, but it requires careful planning.
+Think of it like setting a **limit order** on a traditional exchange: you’re choosing a price range where you’re willing to trade one asset for another. Outside of that range, you simply hold your chosen asset. It’s a bit like saying, “Will sell my **USDC** for **ES** only if **ES** drops to my target price range.” This approach can be more capital-efficient and strategic, but it requires careful planning.
 
 ### Quick tutorial step by step
 
@@ -16,11 +16,10 @@ Think of it like setting a **limit order** on a traditional exchange: you’re c
 
 ![Content program](/img/docs/app/invariant_points/es1.jpg)
 
-2. Take a look at the **Current Price** value, which is shown on the chart as a vertical yellow line. We’ll be setting up single-sided liquidity relative to this value. The **Current Price** for the **ES** token is currently set at 0.6 USDC _(this is a predicted price, not an official one)_.
+1. Take a look at the **Current Price** value, which is shown on the chart as a vertical yellow line. We’ll be setting up single-sided liquidity relative to this value. The **Current Price** for the **ES** token is currently set at 0.6 USDC.
+   ![Content program](/img/docs/app/invariant_points/es4.jpg)
 
-![Content program](/img/docs/app/invariant_points/es4.jpg)
-
-3. The default range is distributed symmetrically around the **Current Price**. In this setup, you get a **50:50** ratio, which means you need to add equal value of both tokens. To provide single-sided liquidity, the **“MIN”** and **“MAX”** indicators must be positioned to the left of the line marking the **Current Price**.
+1. The default range is distributed symmetrically around the **Current Price**. In this setup, you get a **50:50** ratio, which means you need to add equal value of both tokens. To provide single-sided liquidity, the **“MIN”** and **“MAX”** indicators must be positioned to the left of the line marking the **Current Price**.
 
 ![Content program](/img/docs/app/invariant_points/es3.jpg)
 
@@ -38,4 +37,4 @@ Think of it like setting a **limit order** on a traditional exchange: you’re c
 
 **After TGE (price drop to $0.48)** – The position is inactive because the ES price is now below my price range. All of the USDC I added earlier has been swapped for ES tokens. Current position ratio: **USDC 0:100 ES**.
 
-What happens if the ES price starts going back up? The same process, just in reverse: if the price moves above my price range, the position will shift back to **100% USDC**, just as it was when it was originally added.
+What happens if the ES price starts going back up? The same process, just in reverse: if the price moves above my price range, the position will shift back to **100% USDC**, just as it was when it was originally added. Meanwhile, I will be earning a significant amount of **fees**, especially when the price is volatile, as well as **Invariant Points** thanks to adding single-sided liquidity ahead of other users.
