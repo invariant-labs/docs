@@ -88,6 +88,13 @@ module.exports = {
 
     {
       type: "category",
+      label: "INVT Token",
+      // collapsed: true,
+      items: ["invariant_token/tokenomics", "invariant_token/fee_reduction"],
+    },
+
+    {
+      type: "category",
       label: "Supported Blockchains",
       // collapsed: true,
       items: [
